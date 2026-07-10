@@ -1,5 +1,6 @@
 package net.netherway.starwarschaincode.race;
 
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -15,6 +16,7 @@ public class RaceAttachments {
                     AttachmentType.builder(() -> Race.HUMAN)
                             .serialize(Race.CODEC)
                             .copyOnDeath()
+                            .sync(ByteBufCodecs.fromCodec(Race.CODEC))
                             .build()
             );
 }

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "net.netherway.starwarschaincode.mixin",
+  "compatibilityLevel": "JAVA_21",
+
+  "mixins": [],
+
+  "client": [
+    "AbstractClientPlayerMixin"
+  ],
+
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

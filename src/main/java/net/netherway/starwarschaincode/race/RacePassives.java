@@ -16,6 +16,7 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 @EventBusSubscriber(modid = "starwarschaincode")
 public class RacePassives {
     private static boolean hasWeakness = false;
+    private static boolean hasBlindness = false;
 
     private static final ResourceLocation HEALTH_MODIFIER_ID =
             ResourceLocation.fromNamespaceAndPath("starwarschaincode", "race_health_bonus");
@@ -27,6 +28,7 @@ public class RacePassives {
     private static final float RANGED_BONUS_MULTIPLIER = 2.5f;
 
     private static final int FOOD_THRESHOLD = 10;
+    private static final int HEALTH_THRESHOLD = 10;
     private static final int CHECK_INTERVAL_TICKS = 20;
 
     public static void apply(ServerPlayer player, Race race) {
@@ -92,6 +94,7 @@ public class RacePassives {
 
         for (ServerPlayer player : event.getServer().getPlayerList().getPlayers()) {
             boolean lowFood = player.getFoodData().getFoodLevel() < FOOD_THRESHOLD;
+            boolean lowHealth = player.getHealth() < HEALTH_THRESHOLD;
             Race race = player.getData(RaceAttachments.PLAYER_RACE);
 
             if (lowFood && race == Race.WOOKIEE && !hasWeakness) {
@@ -100,6 +103,14 @@ public class RacePassives {
             } else if (!lowFood && race == Race.WOOKIEE && hasWeakness) {
                 player.removeEffect(MobEffects.WEAKNESS);
                 hasWeakness = false;
+            }
+
+            if(lowHealth && race == Race.ZABRAK && !hasBlindness) {
+                player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, MobEffectInstance.INFINITE_DURATION, 0, true, false, false));
+                hasBlindness = true;
+            } else if(!lowHealth && race == Race.ZABRAK && hasBlindness) {
+                player.removeEffect(MobEffects.BLINDNESS);
+                hasBlindness = false;
             }
         }
     }

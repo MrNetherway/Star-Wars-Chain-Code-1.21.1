@@ -2,6 +2,7 @@ package net.netherway.starwarschaincode;
 
 import net.netherway.starwarschaincode.item.ModItems;
 import net.netherway.starwarschaincode.race.RaceAttachments;
+import net.netherway.starwarschaincode.sound.ModSounds;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -34,6 +35,7 @@ public class StarWarsChainCode {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModSounds.register(modEventBus);
         ModItems.register(modEventBus);
 
         RaceAttachments.ATTACHMENT_TYPES.register(modEventBus);

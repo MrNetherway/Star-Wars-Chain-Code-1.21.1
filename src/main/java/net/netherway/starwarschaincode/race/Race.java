@@ -1,7 +1,9 @@
 package net.netherway.starwarschaincode.race;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
+import net.netherway.starwarschaincode.StarWarsChainCode;
 
 public enum Race implements StringRepresentable{
     HUMAN("human", "Humano", "Versátil, sem penalidades.", 0, false, 0, 0),
@@ -37,4 +39,10 @@ public enum Race implements StringRepresentable{
     public boolean hasWaterBreathing() { return waterBreathing; }
     public double getExtraSize() { return extraSize; }
     public double getExtraSpeed() { return extraSpeed; }
+    public ResourceLocation getSkinTexture() {
+        return ResourceLocation.fromNamespaceAndPath(
+                StarWarsChainCode.MOD_ID,
+                "textures/race_skins/" + getSerializedName() + ".png"
+        );
+    }
 }

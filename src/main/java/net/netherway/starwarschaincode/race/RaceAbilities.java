@@ -2,8 +2,10 @@ package net.netherway.starwarschaincode.race;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.netherway.starwarschaincode.sound.ModSounds;
 import net.netherway.starwarschaincode.util.DelayedTaskScheduler;
 
 import java.util.HashMap;
@@ -40,6 +42,16 @@ public class RaceAbilities {
                             MobEffects.DAMAGE_BOOST, 10*20, 1, true, true
 
                     ));
+
+                    player.level().playSound(
+                            null,
+                            player.blockPosition(),
+                            ModSounds.WOOKIEE_ABILITY_1.get(),
+                            SoundSource.PLAYERS,
+                            1.0F,
+                            1.0F
+                    );
+
                     DelayedTaskScheduler.schedule(player.serverLevel(), 10*20, () -> {
                         player.addEffect(new MobEffectInstance(
                                 MobEffects.MOVEMENT_SLOWDOWN, 3*20, 1, true, false, false
@@ -52,6 +64,26 @@ public class RaceAbilities {
             }
             case KEL_DOR -> {
 
+            }
+            case ZABRAK -> {
+                if (slot == 1) {
+                    if (player.getHealth() < player.getHealth()+race.getExtraHealth() && player.getFoodData().getFoodLevel() >= 4){
+                        player.getFoodData().setFoodLevel(player.getFoodData().getFoodLevel()-4);
+                        player.setHealth(player.getHealth()+4);
+                    }
+                } else if (slot == 2) {
+                    player.addEffect(new MobEffectInstance(
+                            MobEffects.DAMAGE_BOOST, 15*20, 1, true, true
+
+                    ));
+
+                    DelayedTaskScheduler.schedule(player.serverLevel(), 15*20, () -> {
+                        player.addEffect(new MobEffectInstance(
+                                MobEffects.WEAKNESS, 5*20, 1, true, false, false
+
+                        ));
+                    });
+                }
             }
             default -> {}
         }

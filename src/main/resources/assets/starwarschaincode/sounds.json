@@ -1,0 +1,8 @@
+{
+  "wookiee_ability_1": {
+    "subtitle": "sounds.starwarschaincode.wookiee_ability_1",
+    "sounds": [
+      "starwarschaincode:wookiee_ability_1"
+    ]
+  }
+}
