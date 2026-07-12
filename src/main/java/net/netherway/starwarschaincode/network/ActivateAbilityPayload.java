@@ -5,11 +5,12 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+import net.netherway.starwarschaincode.StarWarsChainCode;
 
 public record ActivateAbilityPayload(int slot) implements CustomPacketPayload {
 
     public static final Type<ActivateAbilityPayload> TYPE =
-            new Type<>(ResourceLocation.fromNamespaceAndPath("starwarschaincode", "activate_ability"));
+            new Type<>(ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "activate_ability"));
 
     public static final StreamCodec<ByteBuf, ActivateAbilityPayload> STREAM_CODEC =
             ByteBufCodecs.VAR_INT.map(ActivateAbilityPayload::new, ActivateAbilityPayload::slot);

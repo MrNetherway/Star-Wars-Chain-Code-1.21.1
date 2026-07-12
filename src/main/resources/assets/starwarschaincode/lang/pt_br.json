@@ -1,10 +1,12 @@
 {
   "item.starwarschaincode.raw_doonium": "Doônio Cru",
   "item.starwarschaincode.dl_44": "DL-44",
+  "item.starwarschaincode.lightsaber": "Sabre de Luz",
 
   "key.starwarschaincode.race_ability_1": "Habilidade de raça 1",
   "key.starwarschaincode.race_ability_2": "Habilidade de raça 2",
   "key.categories.starwarschaincode": "Star Wars: Chain Code",
+  "key.starwarschaincode.lightsaber_impulse": "Impulso com Sabre de Luz",
 
   "sounds.starwarschaincode.wookiee_ability_1": "Rugido de Wookiee"
 }

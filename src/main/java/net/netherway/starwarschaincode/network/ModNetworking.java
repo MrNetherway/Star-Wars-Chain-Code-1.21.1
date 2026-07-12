@@ -1,20 +1,27 @@
 package net.netherway.starwarschaincode.network;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.netherway.starwarschaincode.StarWarsChainCode;
+import net.netherway.starwarschaincode.component.ModDataComponents;
 import net.netherway.starwarschaincode.entity.custom.BlasterBoltEntity;
-import net.netherway.starwarschaincode.item.ModItems;
+import net.netherway.starwarschaincode.item.custom.LightsaberItem;
 import net.netherway.starwarschaincode.item.custom.WeaponItem;
 import net.netherway.starwarschaincode.race.RaceAbilities;
 import net.netherway.starwarschaincode.race.RaceAttachments;
 import net.netherway.starwarschaincode.race.RacePassives;
 
-@EventBusSubscriber(modid = "starwarschaincode")
+@EventBusSubscriber(modid = StarWarsChainCode.MOD_ID)
 public class ModNetworking {
 
     @SubscribeEvent
@@ -22,10 +29,117 @@ public class ModNetworking {
         PayloadRegistrar registrar = event.registrar("1");
         registrar.playToServer(SelectRacePayload.TYPE, SelectRacePayload.STREAM_CODEC, ModNetworking::handleSelectRace);
         registrar.playToServer(ActivateAbilityPayload.TYPE, ActivateAbilityPayload.STREAM_CODEC, ModNetworking::handleActivateAbility);
-        registrar.playToServer(
-                FireBlasterPayload.TYPE,
-                FireBlasterPayload.STREAM_CODEC,
-                ModNetworking::handleFireBlaster
+        registrar.playToServer(FireBlasterPayload.TYPE, FireBlasterPayload.STREAM_CODEC, ModNetworking::handleFireBlaster);
+        registrar.playToServer(ActivateSaberPayload.TYPE, ActivateSaberPayload.STREAM_CODEC, ModNetworking::handleSaberActivate);
+        registrar.playToServer(LightsaberImpulsePayload.TYPE, LightsaberImpulsePayload.STREAM_CODEC, ModNetworking::handleLightsaberImpulse);
+        registrar.playToServer(BlockingPayload.TYPE, BlockingPayload.STREAM_CODEC, ModNetworking::handleBlocking);
+    }
+
+    private static void handleBlocking(BlockingPayload payload, IPayloadContext ctx) {
+
+        if (!(ctx.player() instanceof ServerPlayer player))
+            return;
+
+        ItemStack stack = player.getMainHandItem();
+
+        if (!(stack.getItem() instanceof LightsaberItem))
+            return;
+
+        boolean activated = stack.getOrDefault(
+                ModDataComponents.ACTIVATED.get(),
+                false
+        );
+
+        if (!activated)
+            return;
+
+        stack.set(
+                ModDataComponents.BLOCKING.get(),
+                payload.isBlocking()
+        );
+
+
+    }
+
+    private static void handleLightsaberImpulse(LightsaberImpulsePayload payload, IPayloadContext ctx) {
+
+        ctx.enqueueWork(() -> {
+
+            if (!(ctx.player() instanceof ServerPlayer player))
+                return;
+
+            ItemStack stack = player.getMainHandItem();
+
+            if (!(stack.getItem() instanceof LightsaberItem))
+                return;
+
+            boolean activated = stack.getOrDefault(
+                    ModDataComponents.ACTIVATED.get(),
+                    false
+            );
+
+            boolean blocking = stack.getOrDefault(
+                    ModDataComponents.BLOCKING.get(),
+                    false
+            );
+
+            if (!activated || blocking)
+                return;
+
+            float yaw = player.getYRot();
+            float pitch = player.getXRot();
+
+            float x = -Mth.sin(yaw * ((float)Math.PI / 180F)) * Mth.cos(pitch * ((float)Math.PI / 180F));
+            float y = -Mth.sin(pitch * ((float)Math.PI / 180F));
+            float z = Mth.cos(yaw * ((float)Math.PI / 180F)) * Mth.cos(pitch * ((float)Math.PI / 180F));
+
+            float len = Mth.sqrt(x * x + y * y + z * z);
+
+            x *= 1.7F / len;
+            y *= 1.7F / len;
+            z *= 1.7F / len;
+
+            player.push(x, y, z);
+
+            System.out.println(player.getDeltaMovement());
+
+            player.hasImpulse = true;
+            player.hurtMarked = true;
+
+            player.startAutoSpinAttack(20, 8.0F, stack);
+
+            if (player.onGround()) {
+                player.move(MoverType.SELF, new Vec3(0, 1.2, 0));
+            }
+
+            player.level().playSound(
+                    null,
+                    player,
+                    SoundEvents.TRIDENT_THROW.value(),
+                    SoundSource.PLAYERS,
+                    1F,
+                    1F
+            );
+        });
+    }
+
+    private static void handleSaberActivate(ActivateSaberPayload payload, IPayloadContext ctx) {
+        if (!(ctx.player() instanceof ServerPlayer player))
+            return;
+
+        ItemStack stack = player.getMainHandItem();
+
+        if (!(stack.getItem() instanceof LightsaberItem))
+            return;
+
+        boolean activated = stack.getOrDefault(
+                ModDataComponents.ACTIVATED,
+                false
+        );
+
+        stack.set(
+                ModDataComponents.ACTIVATED,
+                !activated
         );
     }
 

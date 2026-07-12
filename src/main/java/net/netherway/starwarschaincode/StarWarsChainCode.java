@@ -1,7 +1,8 @@
 package net.netherway.starwarschaincode;
 
-import net.netherway.starwarschaincode.client.ClientAbilityHandler;
+import net.netherway.starwarschaincode.component.ModDataComponents;
 import net.netherway.starwarschaincode.entity.ModEntities;
+import net.netherway.starwarschaincode.worldgen.ModFeatures;
 import net.netherway.starwarschaincode.item.ModItems;
 import net.netherway.starwarschaincode.race.RaceAttachments;
 import net.netherway.starwarschaincode.sound.ModSounds;
@@ -40,6 +41,8 @@ public class StarWarsChainCode {
         ModSounds.register(modEventBus);
         ModItems.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
+        ModDataComponents.register(modEventBus);
+        ModFeatures.register(modEventBus);
 
         RaceAttachments.ATTACHMENT_TYPES.register(modEventBus);
 

@@ -1,0 +1,11 @@
+{
+  "parent": "starwarschaincode:item/lightsaber_hilt",
+  "overrides": [
+    {
+      "predicate": {
+        "starwarschaincode:activated": 1
+      },
+      "model": "starwarschaincode:item/lightsaber_saber"
+    }
+  ]
+}
