@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:charged_chamber",
+  "ingredient": {
+    "item": "starwarschaincode:alumina"
+  },
+  "result": {
+    "id": "starwarschaincode:aluminum_bar",
+    "count": 1
+  }
+}

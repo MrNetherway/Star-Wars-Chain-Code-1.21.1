@@ -1,7 +1,17 @@
 package net.netherway.starwarschaincode;
 
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.netherway.starwarschaincode.block.ModBlocks;
+import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
 import net.netherway.starwarschaincode.component.ModDataComponents;
 import net.netherway.starwarschaincode.entity.ModEntities;
+import net.netherway.starwarschaincode.recipe.ModRecipes;
+import net.netherway.starwarschaincode.screen.ModMenuTypes;
+import net.netherway.starwarschaincode.screen.custom.ChargedChamberScreen;
+import net.netherway.starwarschaincode.screen.custom.LavaRefinerScreen;
 import net.netherway.starwarschaincode.worldgen.ModFeatures;
 import net.netherway.starwarschaincode.item.ModItems;
 import net.netherway.starwarschaincode.race.RaceAttachments;
@@ -43,6 +53,10 @@ public class StarWarsChainCode {
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModDataComponents.register(modEventBus);
         ModFeatures.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         RaceAttachments.ATTACHMENT_TYPES.register(modEventBus);
 
@@ -66,6 +80,15 @@ public class StarWarsChainCode {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
+    }
+
+    @EventBusSubscriber(modid = StarWarsChainCode.MOD_ID, value = Dist.CLIENT)
+    public static class ClientModEvents{
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.LAVA_REFINER_MENU.get(), LavaRefinerScreen::new);
+            event.register(ModMenuTypes.CHARGED_CHAMBER_MENU.get(), ChargedChamberScreen::new);
+        }
     }
 
 

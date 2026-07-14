@@ -13,6 +13,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.netherway.starwarschaincode.block.ModBlocks;
 
 import java.util.Set;
 
@@ -23,7 +24,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-
+        this.dropSelf(ModBlocks.LAVA_REFINER.get());
+        this.dropSelf(ModBlocks.CHARGED_CHAMBER.get());
+        this.dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
@@ -34,11 +37,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                         .apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
     }
 
-//    @Override
-//    protected Iterable<Block> getKnownBlocks() {
-//        return ModBlocks.BLOCKS.getEntries()
-//                .stream()
-//                .map(entry -> (Block) entry.value())
-//                .toList();
-//    }
+    @Override
+    protected Iterable<Block> getKnownBlocks() {
+        return ModBlocks.BLOCKS.getEntries()
+                .stream()
+                .map(entry -> (Block) entry.value())
+                .toList();
+    }
 }

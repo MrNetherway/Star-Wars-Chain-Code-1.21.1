@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:charged_chamber",
+  "ingredient": {
+    "item": "starwarschaincode:raw_dolovite"
+  },
+  "result": {
+    "id": "starwarschaincode:polished_dolovite",
+    "count": 1
+  }
+}

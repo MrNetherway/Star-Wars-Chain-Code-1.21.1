@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "starwarschaincode:block/lava_refiner"
+    }
+  }
+}

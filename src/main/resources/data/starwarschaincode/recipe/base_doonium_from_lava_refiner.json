@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:lava_refiner",
+  "ingredient": {
+    "item": "starwarschaincode:raw_doonium"
+  },
+  "result": {
+    "id": "starwarschaincode:base_doonium",
+    "count": 1
+  }
+}

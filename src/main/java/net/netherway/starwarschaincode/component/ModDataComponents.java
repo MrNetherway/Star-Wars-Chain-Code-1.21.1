@@ -21,6 +21,10 @@ public class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> BLOCKING = register("blocking",
             builder -> builder.persistent(Codec.BOOL));
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> SOLAR_AMOUNT = register("solar_amount",
+            builder -> builder.persistent(Codec.INT));
+
+
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,
                                                                                           UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
         return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());

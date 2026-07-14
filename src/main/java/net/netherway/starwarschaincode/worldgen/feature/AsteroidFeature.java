@@ -2,6 +2,7 @@ package net.netherway.starwarschaincode.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,10 +21,11 @@ public class AsteroidFeature extends Feature<NoneFeatureConfiguration> {
 
         WorldGenLevel level = context.level();
         BlockPos pos = context.origin();
+        RandomSource random = context.random();
 
-        int radius = level.getRandom().nextIntBetweenInclusive(8, 16);
+        int radius = level.getRandom().nextIntBetweenInclusive(4, 8);
 
-        AsteroidGenerator.generate((WorldGenLevel) level, pos, radius);
+        AsteroidGenerator.generate((WorldGenLevel) level, pos, radius, random);
 
         return true;
     }
