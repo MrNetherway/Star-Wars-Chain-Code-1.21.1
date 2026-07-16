@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:blueprint_builder",
+  "ingredients": [
+    "starwarschaincode:doonium_plate", "minecraft:glass", "minecraft:glass", "starwarschaincode:doonium_plate",
+    "starwarschaincode:doonium_plate", "starwarschaincode:doonium_plate", "starwarschaincode:energy_cell", "starwarschaincode:doonium_plate",
+    "starwarschaincode:doonium_plate", "starwarschaincode:doonium_wing", "starwarschaincode:doonium_wing", "starwarschaincode:doonium_plate",
+    "starwarschaincode:doonium_plate", "starwarschaincode:doonium_plate", "starwarschaincode:doonium_plate", "starwarschaincode:doonium_plate"
+  ],
+  "result": { "id": "starwarschaincode:z_95_headhunter_blueprint", "count": 1 }
+}

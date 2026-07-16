@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:ink_sac"
+    }
+  },
+  "pattern": [
+    "S",
+    "I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:pen"
+  }
+}

@@ -17,8 +17,31 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.LAVA_REFINER);
         blockWithItem(ModBlocks.CHARGED_CHAMBER);
+        blueprintBuilderBlock();
+
+        blockWithItem(ModBlocks.DOONIUM_ORE);
+        blockWithItem(ModBlocks.BAUXITE_ORE);
+        blockWithItem(ModBlocks.QUADANIUM_ORE);
+        blockWithItem(ModBlocks.DOLOVITE_ORE);
+        blockWithItem(ModBlocks.BAUXITE_DEEPSLATE_ORE);
+
         blockWithItem(ModBlocks.ALUMINUM_BLOCK);
     }
+
+    private void blueprintBuilderBlock() {
+        var model = models().cube("blueprint_builder",
+                modLoc("block/blueprint_builder_bottom"),
+                modLoc("block/blueprint_builder_top"),
+                modLoc("block/blueprint_builder_front"),
+                modLoc("block/blueprint_builder_side"),
+                modLoc("block/blueprint_builder_side"),
+                modLoc("block/blueprint_builder_side")
+        ).texture("particle", modLoc("block/blueprint_builder_front"));
+        simpleBlock(ModBlocks.BLUEPRINT_BUILDER.get(), model);
+        simpleBlockItem(ModBlocks.BLUEPRINT_BUILDER.get(), model);
+
+    }
+
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));

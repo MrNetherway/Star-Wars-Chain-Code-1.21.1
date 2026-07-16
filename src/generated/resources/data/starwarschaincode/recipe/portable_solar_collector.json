@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "starwarschaincode:wire"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "starwarschaincode:solar_collector_panel"
+    },
+    {
+      "item": "starwarschaincode:solar_cell"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:portable_solar_collector"
+  }
+}

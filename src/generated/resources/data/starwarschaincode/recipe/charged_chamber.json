@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "starwarschaincode:aluminum_bar"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "E": {
+      "item": "starwarschaincode:energy_cell"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "AEA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:charged_chamber"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:blueprint_builder",
+  "ingredients": [
+    "","","","",
+    "starwarschaincode:wire","starwarschaincode:screen","starwarschaincode:screen","starwarschaincode:wire",
+    "","starwarschaincode:aluminum_plate","starwarschaincode:aluminum_plate","",
+    "","","",""
+  ],
+  "result": { "id": "starwarschaincode:life_support_blueprint", "count": 1 }
+}

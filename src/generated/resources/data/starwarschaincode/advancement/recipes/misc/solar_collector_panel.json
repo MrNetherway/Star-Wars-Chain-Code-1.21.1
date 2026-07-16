@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_quadanium_coating": {
+      "conditions": {
+        "items": [
+          {
+            "items": "starwarschaincode:quadanium_coating"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "starwarschaincode:solar_collector_panel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_quadanium_coating"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "starwarschaincode:solar_collector_panel"
+    ]
+  }
+}

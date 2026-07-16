@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:blueprint_builder",
+  "ingredients": [
+    "minecraft:iron_ingot","minecraft:iron_ingot","minecraft:iron_ingot","minecraft:iron_ingot",
+    "starwarschaincode:aluminum_bar","minecraft:diamond","minecraft:diamond","starwarschaincode:aluminum_bar",
+    "starwarschaincode:aluminum_bar","starwarschaincode:aluminum_bar","starwarschaincode:aluminum_bar","starwarschaincode:aluminum_bar",
+    "starwarschaincode:aluminum_bar","starwarschaincode:aluminum_bar","starwarschaincode:aluminum_bar","starwarschaincode:aluminum_bar"
+  ],
+  "result": { "id": "starwarschaincode:hyperdrive_blueprint", "count": 1 }
+}

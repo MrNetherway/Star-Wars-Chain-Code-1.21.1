@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:redstone_block"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "W": {
+      "item": "starwarschaincode:wire"
+    }
+  },
+  "pattern": [
+    "RBR",
+    "WWW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:energy_cell"
+  }
+}

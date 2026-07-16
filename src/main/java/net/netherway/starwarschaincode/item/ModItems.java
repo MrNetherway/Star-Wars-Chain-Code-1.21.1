@@ -29,13 +29,19 @@ public class ModItems {
     public static final DeferredItem<Item> WIRE = ITEMS.registerSimpleItem("wire");
     public static final DeferredItem<Item> SCREEN = ITEMS.registerSimpleItem("screen");
     public static final DeferredItem<Item> READER = ITEMS.registerSimpleItem("reader");
-    public static final DeferredItem<Item> PEN = ITEMS.registerSimpleItem("pen");
+    public static final DeferredItem<Item> PEN = ITEMS.registerItem("pen",
+            properties -> new Item(properties), new Item.Properties().stacksTo(1).durability(250));
     public static final DeferredItem<Item> ALUMINUM_PLATE = ITEMS.registerSimpleItem("aluminum_plate");
     public static final DeferredItem<Item> DOONIUM_WING = ITEMS.registerSimpleItem("doonium_wing");
     public static final DeferredItem<Item> ENERGY_CELL = ITEMS.registerSimpleItem("energy_cell");
     public static final DeferredItem<Item> SOLAR_CELL = ITEMS.registerSimpleItem("solar_cell");
     public static final DeferredItem<Item> QUADANIUM_COATING = ITEMS.registerSimpleItem("quadanium_coating");
     public static final DeferredItem<Item> SOLAR_COLLECTOR_PANEL = ITEMS.registerSimpleItem("solar_collector_panel");
+    public static final DeferredItem<Item> COPPER_PLATE = ITEMS.registerSimpleItem("copper_plate");
+    public static final DeferredItem<Item> DOONIUM_PLATE = ITEMS.registerSimpleItem("doonium_plate");
+    public static final DeferredItem<Item> IRON_PLATE = ITEMS.registerSimpleItem("iron_plate");
+    public static final DeferredItem<Item> POLISHED_DOLOVITE_PLATE = ITEMS.registerSimpleItem("polished_dolovite_plate");
+    public static final DeferredItem<Item> TIBANNA_GAS_CAPSULE = ITEMS.registerSimpleItem("tibanna_gas_capsule");
 
     public static final DeferredItem<Item> Z_95_HEADHUNTER_BLUEPRINT = ITEMS.registerSimpleItem("z_95_headhunter_blueprint");
     public static final DeferredItem<Item> HYPERDRIVE_BLUEPRINT = ITEMS.registerSimpleItem("hyperdrive_blueprint");

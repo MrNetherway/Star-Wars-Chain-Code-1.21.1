@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:blueprint_builder",
+  "ingredients": [
+    "starwarschaincode:aluminum_bar","minecraft:redstone","minecraft:redstone","starwarschaincode:iron_plate",
+    "starwarschaincode:aluminum_bar","minecraft:redstone","minecraft:redstone","starwarschaincode:iron_plate",
+    "starwarschaincode:aluminum_bar","","","starwarschaincode:iron_plate",
+    "starwarschaincode:aluminum_bar","","","starwarschaincode:iron_plate"
+  ],
+  "result": { "id": "starwarschaincode:repulsorlift_generator_blueprint", "count": 1 }
+}

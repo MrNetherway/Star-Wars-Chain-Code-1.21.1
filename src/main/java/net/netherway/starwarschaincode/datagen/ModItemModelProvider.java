@@ -37,6 +37,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SOLAR_CELL.get());
         basicItem(ModItems.QUADANIUM_COATING.get());
         basicItem(ModItems.SOLAR_COLLECTOR_PANEL.get());
+        basicItem(ModItems.COPPER_PLATE.get());
+        basicItem(ModItems.DOONIUM_PLATE.get());
+        basicItem(ModItems.IRON_PLATE.get());
+        basicItem(ModItems.POLISHED_DOLOVITE_PLATE.get());
+        basicItem(ModItems.TIBANNA_GAS_CAPSULE.get());
 
         basicItem(ModItems.Z_95_HEADHUNTER_BLUEPRINT.get());
         basicItem(ModItems.HYPERDRIVE_BLUEPRINT.get());

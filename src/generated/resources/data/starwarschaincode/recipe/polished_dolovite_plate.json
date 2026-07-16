@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "starwarschaincode:polished_dolovite"
+    }
+  },
+  "pattern": [
+    "AAA"
+  ],
+  "result": {
+    "count": 4,
+    "id": "starwarschaincode:polished_dolovite_plate"
+  }
+}

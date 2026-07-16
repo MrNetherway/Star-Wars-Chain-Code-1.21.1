@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "starwarschaincode:block/blueprint_builder"
+    }
+  }
+}

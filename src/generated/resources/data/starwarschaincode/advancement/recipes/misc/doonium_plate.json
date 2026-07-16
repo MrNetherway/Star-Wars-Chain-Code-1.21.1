@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_doonium_bar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "starwarschaincode:doonium_bar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "starwarschaincode:doonium_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_doonium_bar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "starwarschaincode:doonium_plate"
+    ]
+  }
+}

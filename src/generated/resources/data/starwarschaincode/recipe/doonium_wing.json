@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "starwarschaincode:copper_plate"
+    },
+    "D": {
+      "item": "starwarschaincode:doonium_plate"
+    }
+  },
+  "pattern": [
+    "DC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:doonium_wing"
+  }
+}

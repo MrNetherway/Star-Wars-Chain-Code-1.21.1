@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:blueprint_builder",
+  "ingredients": [
+    "","starwarschaincode:doonium_bar","starwarschaincode:doonium_bar","",
+    "starwarschaincode:wire","starwarschaincode:doonium_bar","starwarschaincode:doonium_bar","starwarschaincode:wire",
+    "","starwarschaincode:polished_dolovite_plate","starwarschaincode:polished_dolovite_plate","",
+    "","","",""
+  ],
+  "result": { "id": "starwarschaincode:main_reactor_blueprint", "count": 1 }
+}

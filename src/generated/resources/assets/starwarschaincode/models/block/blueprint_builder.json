@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "starwarschaincode:block/blueprint_builder_bottom",
+    "east": "starwarschaincode:block/blueprint_builder_side",
+    "north": "starwarschaincode:block/blueprint_builder_front",
+    "particle": "starwarschaincode:block/blueprint_builder_front",
+    "south": "starwarschaincode:block/blueprint_builder_side",
+    "up": "starwarschaincode:block/blueprint_builder_top",
+    "west": "starwarschaincode:block/blueprint_builder_side"
+  }
+}

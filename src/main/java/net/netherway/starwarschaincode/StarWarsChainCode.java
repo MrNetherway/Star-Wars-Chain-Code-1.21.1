@@ -8,8 +8,11 @@ import net.netherway.starwarschaincode.block.ModBlocks;
 import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
 import net.netherway.starwarschaincode.component.ModDataComponents;
 import net.netherway.starwarschaincode.entity.ModEntities;
+import net.netherway.starwarschaincode.item.ModCreativeModeTabs;
 import net.netherway.starwarschaincode.recipe.ModRecipes;
 import net.netherway.starwarschaincode.screen.ModMenuTypes;
+import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderMenu;
+import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderScreen;
 import net.netherway.starwarschaincode.screen.custom.ChargedChamberScreen;
 import net.netherway.starwarschaincode.screen.custom.LavaRefinerScreen;
 import net.netherway.starwarschaincode.worldgen.ModFeatures;
@@ -48,6 +51,7 @@ public class StarWarsChainCode {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
         ModSounds.register(modEventBus);
         ModItems.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
@@ -88,6 +92,7 @@ public class StarWarsChainCode {
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.LAVA_REFINER_MENU.get(), LavaRefinerScreen::new);
             event.register(ModMenuTypes.CHARGED_CHAMBER_MENU.get(), ChargedChamberScreen::new);
+            event.register(ModMenuTypes.BLUEPRINT_BUILDER_MENU.get(), BlueprintBuilderScreen::new);
         }
     }
 

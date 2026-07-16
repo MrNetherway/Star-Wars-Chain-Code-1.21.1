@@ -9,6 +9,7 @@ import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
+import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderMenu;
 import net.netherway.starwarschaincode.screen.custom.ChargedChamberMenu;
 import net.netherway.starwarschaincode.screen.custom.LavaRefinerMenu;
 
@@ -20,6 +21,9 @@ public class ModMenuTypes {
             registerMenuType("lava_refiner_menu", LavaRefinerMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<ChargedChamberMenu>> CHARGED_CHAMBER_MENU =
             registerMenuType("charged_chamer_menu", ChargedChamberMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<BlueprintBuilderMenu>> BLUEPRINT_BUILDER_MENU =
+            registerMenuType("blueprint_builder_menu", BlueprintBuilderMenu::new);
+
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
                                                                                                               IContainerFactory<T> factory) {

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_dolovite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "starwarschaincode:polished_dolovite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "starwarschaincode:polished_dolovite_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_dolovite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "starwarschaincode:polished_dolovite_plate"
+    ]
+  }
+}

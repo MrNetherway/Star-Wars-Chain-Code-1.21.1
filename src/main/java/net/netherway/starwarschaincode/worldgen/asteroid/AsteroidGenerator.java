@@ -7,13 +7,15 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.netherway.starwarschaincode.block.ModBlocks;
 
 public class AsteroidGenerator {
 
     private static final Block[] ORES = {
-            Blocks.DEEPSLATE_DIAMOND_ORE,
-            Blocks.DEEPSLATE_GOLD_ORE,
-            Blocks.DEEPSLATE_REDSTONE_ORE
+            ModBlocks.DOONIUM_ORE.get(),
+            ModBlocks.DOLOVITE_ORE.get(),
+            ModBlocks.QUADANIUM_ORE.get(),
+            ModBlocks.DOLOVITE_ORE.get()
     };
 
 

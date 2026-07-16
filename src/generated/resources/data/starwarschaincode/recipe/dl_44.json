@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "Q": {
+      "item": "starwarschaincode:quadanium_bar"
+    },
+    "T": {
+      "item": "starwarschaincode:tibanna_gas_capsule"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "QQQ",
+    "WT ",
+    "W  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:dl_44"
+  }
+}

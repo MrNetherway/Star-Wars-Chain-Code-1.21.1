@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "starwarschaincode:quadanium_bar"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "starwarschaincode:quadanium_coating"
+  }
+}

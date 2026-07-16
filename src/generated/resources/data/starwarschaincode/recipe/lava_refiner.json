@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "starwarschaincode:iron_rod"
+    }
+  },
+  "pattern": [
+    "IRI",
+    "RBR",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:lava_refiner"
+  }
+}

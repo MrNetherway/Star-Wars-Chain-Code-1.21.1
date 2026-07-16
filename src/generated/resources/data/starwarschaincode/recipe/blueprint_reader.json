@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "starwarschaincode:reader"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "starwarschaincode:screen"
+    }
+  },
+  "pattern": [
+    "RSR",
+    "IBI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:blueprint_reader"
+  }
+}

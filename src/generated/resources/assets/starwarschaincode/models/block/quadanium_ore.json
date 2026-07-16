@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "starwarschaincode:block/quadanium_ore"
+  }
+}

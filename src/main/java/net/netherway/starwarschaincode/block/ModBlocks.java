@@ -11,6 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
+import net.netherway.starwarschaincode.block.custom.BlueprintBuilderBlock;
 import net.netherway.starwarschaincode.block.custom.ChargedChamberBlock;
 import net.netherway.starwarschaincode.block.custom.LavaRefinerBlock;
 import net.netherway.starwarschaincode.item.ModItems;
@@ -25,10 +26,27 @@ public class ModBlocks {
             () -> new LavaRefinerBlock(BlockBehaviour.Properties.of()));
     public static final DeferredBlock<Block> CHARGED_CHAMBER = registerBlock("charged_chamber",
             () -> new ChargedChamberBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredBlock<Block> BLUEPRINT_BUILDER = registerBlock("blueprint_builder",
+            () -> new BlueprintBuilderBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredBlock<Block> ALUMINUM_BLOCK = registerBlock("aluminum_block",
             () -> new Block(BlockBehaviour.Properties.of()));
 
+    public static final DeferredBlock<Block> DOONIUM_ORE = registerBlock("doonium_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2, 4),
+                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BAUXITE_ORE = registerBlock("bauxite_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2, 4),
+                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> QUADANIUM_ORE = registerBlock("quadanium_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2, 4),
+                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> DOLOVITE_ORE = registerBlock("dolovite_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2, 4),
+                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BAUXITE_DEEPSLATE_ORE = registerBlock("bauxite_deepslate_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 6),
+                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
