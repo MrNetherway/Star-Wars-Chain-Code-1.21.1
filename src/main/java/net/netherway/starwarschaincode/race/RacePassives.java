@@ -12,6 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.netherway.starwarschaincode.component.ModAttachments;
 
 @EventBusSubscriber(modid = "starwarschaincode")
 public class RacePassives {
@@ -79,7 +80,7 @@ public class RacePassives {
         if (event.getEntity() instanceof AbstractArrow arrow
                 && arrow.getOwner() instanceof ServerPlayer shooter) {
 
-            Race race = shooter.getData(RaceAttachments.PLAYER_RACE);
+            Race race = shooter.getData(ModAttachments.PLAYER_RACE);
 
             if (race == Race.WOOKIEE) {
                 arrow.setBaseDamage(arrow.getBaseDamage() * RANGED_BONUS_MULTIPLIER);
@@ -95,7 +96,7 @@ public class RacePassives {
         for (ServerPlayer player : event.getServer().getPlayerList().getPlayers()) {
             boolean lowFood = player.getFoodData().getFoodLevel() < FOOD_THRESHOLD;
             boolean lowHealth = player.getHealth() < HEALTH_THRESHOLD;
-            Race race = player.getData(RaceAttachments.PLAYER_RACE);
+            Race race = player.getData(ModAttachments.PLAYER_RACE);
 
             if (lowFood && race == Race.WOOKIEE && !hasWeakness) {
                 player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, MobEffectInstance.INFINITE_DURATION, 1, true, false, false));

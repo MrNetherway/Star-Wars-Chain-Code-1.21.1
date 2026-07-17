@@ -17,6 +17,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.LAVA_REFINER);
         blockWithItem(ModBlocks.CHARGED_CHAMBER);
+        blockWithItem(ModBlocks.PLATFORM_CONTROLLER);
+        blockWithItem(ModBlocks.PLATFORM_FILLER);
         blueprintBuilderBlock();
 
         blockWithItem(ModBlocks.DOONIUM_ORE);

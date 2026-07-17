@@ -6,9 +6,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.block.ModBlocks;
-import net.netherway.starwarschaincode.block.custom.ChargedChamberBlock;
 import net.netherway.starwarschaincode.block.entity.ChargedChamberBlockEntity;
 import net.netherway.starwarschaincode.block.entity.LavaRefinerBlockEntity;
+import net.netherway.starwarschaincode.block.entity.PlatformControllerBlockEntity;
+import net.netherway.starwarschaincode.block.entity.PlatformFillerBlockEntity;
 
 import java.util.function.Supplier;
 
@@ -23,6 +24,14 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<ChargedChamberBlockEntity>> CHARGED_CHAMBER_BE =
             BLOCK_ENTITIES.register("charged_chamber_be", () -> BlockEntityType.Builder.of(
                     ChargedChamberBlockEntity::new, ModBlocks.CHARGED_CHAMBER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<PlatformControllerBlockEntity>> PLATFORM_CONTROLLER_BE =
+            BLOCK_ENTITIES.register("platform_controller", () -> BlockEntityType.Builder.of(
+                    PlatformControllerBlockEntity::new, ModBlocks.PLATFORM_CONTROLLER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<PlatformFillerBlockEntity>> PLATFORM_FILLER_BE =
+            BLOCK_ENTITIES.register("platform_filler", () -> BlockEntityType.Builder.of(
+                    PlatformFillerBlockEntity::new, ModBlocks.PLATFORM_FILLER.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

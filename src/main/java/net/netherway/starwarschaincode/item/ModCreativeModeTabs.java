@@ -65,6 +65,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.LAVA_REFINER);
                         output.accept(ModBlocks.CHARGED_CHAMBER);
                         output.accept(ModBlocks.BLUEPRINT_BUILDER);
+                        output.accept(ModBlocks.PLATFORM_CONTROLLER);
 
                     }).build());
 

@@ -2,7 +2,6 @@ package net.netherway.starwarschaincode;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.netherway.starwarschaincode.block.ModBlocks;
 import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
@@ -11,13 +10,14 @@ import net.netherway.starwarschaincode.entity.ModEntities;
 import net.netherway.starwarschaincode.item.ModCreativeModeTabs;
 import net.netherway.starwarschaincode.recipe.ModRecipes;
 import net.netherway.starwarschaincode.screen.ModMenuTypes;
-import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderMenu;
 import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderScreen;
 import net.netherway.starwarschaincode.screen.custom.ChargedChamberScreen;
 import net.netherway.starwarschaincode.screen.custom.LavaRefinerScreen;
+import net.netherway.starwarschaincode.screen.custom.PlatformScreen;
+import net.netherway.starwarschaincode.worldgen.ModChunkGenerators;
 import net.netherway.starwarschaincode.worldgen.ModFeatures;
 import net.netherway.starwarschaincode.item.ModItems;
-import net.netherway.starwarschaincode.race.RaceAttachments;
+import net.netherway.starwarschaincode.component.ModAttachments;
 import net.netherway.starwarschaincode.sound.ModSounds;
 import org.slf4j.Logger;
 
@@ -54,15 +54,15 @@ public class StarWarsChainCode {
         ModCreativeModeTabs.register(modEventBus);
         ModSounds.register(modEventBus);
         ModItems.register(modEventBus);
-        ModEntities.ENTITY_TYPES.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModDataComponents.register(modEventBus);
         ModFeatures.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModRecipes.register(modEventBus);
-
-        RaceAttachments.ATTACHMENT_TYPES.register(modEventBus);
+        ModAttachments.register(modEventBus);
+        ModChunkGenerators.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -93,6 +93,7 @@ public class StarWarsChainCode {
             event.register(ModMenuTypes.LAVA_REFINER_MENU.get(), LavaRefinerScreen::new);
             event.register(ModMenuTypes.CHARGED_CHAMBER_MENU.get(), ChargedChamberScreen::new);
             event.register(ModMenuTypes.BLUEPRINT_BUILDER_MENU.get(), BlueprintBuilderScreen::new);
+            event.register(ModMenuTypes.PLATFORM_MENU.get(), PlatformScreen::new);
         }
     }
 

@@ -7,6 +7,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.netherway.starwarschaincode.StarWarsChainCode;
+import net.netherway.starwarschaincode.item.ModItemTags;
+import net.netherway.starwarschaincode.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -19,6 +21,19 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.tag(ModItemTags.HYPERDRIVE_COMPONENT)
+                .add(ModItems.HYPERDRIVE_BLUEPRINT.get());
 
+        this.tag(ModItemTags.LIFE_SUPPORT_COMPONENT)
+                .add(ModItems.LIFE_SUPPORT_BLUEPRINT.get());
+
+        this.tag(ModItemTags.REPULSORLIFT_GENERATOR_COMPONENT)
+                .add(ModItems.REPULSORLIFT_GENERATOR_BLUEPRINT.get());
+
+        this.tag(ModItemTags.NAVICOMPUTER_COMPONENT)
+                .add(ModItems.NAVICOMPUTER_BLUEPRINT.get());
+
+        this.tag(ModItemTags.MAIN_REACTOR_COMPONENT)
+                .add(ModItems.MAIN_REACTOR_BLUEPRINT.get());
     }
 }

@@ -44,6 +44,7 @@
   "block.starwarschaincode.lava_refiner": "Refinador de Lava",
   "block.starwarschaincode.charged_chamber": "Câmara Energizada",
   "block.starwarschaincode.blueprint_builder": "Construtora de Blueprint",
+  "block.starwarschaincode.platform_controller": "Plataforma de Naves",
 
   "block.starwarschaincode.aluminum_block": "Bloco de Alumínio",
 
@@ -69,5 +70,9 @@
   "key.categories.starwarschaincode": "Star Wars: Chain Code",
   "key.starwarschaincode.lightsaber_impulse": "Impulso com Sabre de Luz",
 
-  "sounds.starwarschaincode.wookiee_ability_1": "Rugido de Wookiee"
+  "sounds.starwarschaincode.wookiee_ability_1": "Rugido de Wookiee",
+
+  "message.starwarschaincode.platform_obstructed": "O espaço está obstruído.",
+
+  "menu.starwarschaincode.platform": "Plataforma de Naves"
 }

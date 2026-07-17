@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:tatooine",
+  "generator": {
+    "type": "starwarschaincode:tatooine",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "starwarschaincode:tatooine_dunes"
+    }
+  }
+}

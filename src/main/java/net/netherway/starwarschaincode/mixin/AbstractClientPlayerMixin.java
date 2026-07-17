@@ -3,7 +3,7 @@ package net.netherway.starwarschaincode.mixin;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.resources.PlayerSkin;
 import net.netherway.starwarschaincode.race.Race;
-import net.netherway.starwarschaincode.race.RaceAttachments;
+import net.netherway.starwarschaincode.component.ModAttachments;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,7 +17,7 @@ public abstract class AbstractClientPlayerMixin {
 
         AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
 
-        Race race = player.getData(RaceAttachments.PLAYER_RACE);
+        Race race = player.getData(ModAttachments.PLAYER_RACE);
 
         if (race == Race.HUMAN)
             return;

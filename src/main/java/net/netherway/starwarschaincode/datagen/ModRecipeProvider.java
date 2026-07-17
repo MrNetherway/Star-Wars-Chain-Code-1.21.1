@@ -199,6 +199,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('E', ModItems.ENERGY_CELL)
                 .define('C', Items.COPPER_INGOT)
                 .unlockedBy("has_energy_cell", has(ModItems.ENERGY_CELL)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PLATFORM, 1)
+                .pattern("RRR")
+                .pattern("IBI")
+                .pattern("III")
+                .define('I', Blocks.IRON_BLOCK)
+                .define('R', ModItems.IRON_ROD)
+                .define('B', ModItems.BLUEPRINT_READER)
+                .unlockedBy("has_iron_rod", has(ModItems.IRON_ROD)).save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.item.custom.LightsaberItem;
+import net.netherway.starwarschaincode.item.custom.PlatformItem;
 import net.netherway.starwarschaincode.item.custom.PortableSolarCollectorItem;
 import net.netherway.starwarschaincode.item.custom.WeaponItem;
 
@@ -60,6 +61,8 @@ public class ModItems {
             properties -> new LightsaberItem(properties.attributes(LightsaberItem.createAttributes()), 12), new Item.Properties().stacksTo(1));
 
 
+    public static final DeferredItem<Item> PLATFORM = ITEMS.registerItem("platform",
+            properties -> new PlatformItem(properties), new Item.Properties());
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

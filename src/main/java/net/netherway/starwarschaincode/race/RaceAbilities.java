@@ -1,10 +1,10 @@
 package net.netherway.starwarschaincode.race;
 
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.netherway.starwarschaincode.component.ModAttachments;
 import net.netherway.starwarschaincode.sound.ModSounds;
 import net.netherway.starwarschaincode.util.DelayedTaskScheduler;
 
@@ -18,7 +18,7 @@ public class RaceAbilities {
     private static final long COOLDOWN_TICKS = 15 * 20;
 
     public static void activate(ServerPlayer player, int slot) {
-        Race race = player.getData(RaceAttachments.PLAYER_RACE);
+        Race race = player.getData(ModAttachments.PLAYER_RACE);
         long now = player.level().getGameTime();
         long last = lastUsed.getOrDefault(player.getUUID(), 0L);
 

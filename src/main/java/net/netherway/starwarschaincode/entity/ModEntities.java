@@ -7,6 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.entity.custom.BlasterBoltEntity;
+import net.netherway.starwarschaincode.entity.custom.ShipEntity;
 
 import java.util.function.Supplier;
 
@@ -19,6 +20,17 @@ public class ModEntities {
                     BlasterBoltEntity::new,
                     MobCategory.MISC
             ).sized(0.2f, 0.2f).build("blasterboltentity"));
+
+    public static final Supplier<EntityType<ShipEntity>> SHIP =
+            ENTITY_TYPES.register("ship", () -> EntityType.Builder.<ShipEntity>of(
+                            ShipEntity::new,
+                            MobCategory.MISC
+                    )
+                    .sized(1.0f, 1.0f) // ajuste pra largura/altura real do seu casco
+                    .clientTrackingRange(10)
+                    .updateInterval(1)
+                    .build("ship"));
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

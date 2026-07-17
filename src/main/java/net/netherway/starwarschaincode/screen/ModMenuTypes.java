@@ -12,6 +12,9 @@ import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderMenu;
 import net.netherway.starwarschaincode.screen.custom.ChargedChamberMenu;
 import net.netherway.starwarschaincode.screen.custom.LavaRefinerMenu;
+import net.netherway.starwarschaincode.screen.custom.PlatformMenu;
+
+import java.util.function.Supplier;
 
 public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
@@ -23,7 +26,8 @@ public class ModMenuTypes {
             registerMenuType("charged_chamer_menu", ChargedChamberMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<BlueprintBuilderMenu>> BLUEPRINT_BUILDER_MENU =
             registerMenuType("blueprint_builder_menu", BlueprintBuilderMenu::new);
-
+    public static final DeferredHolder<MenuType<?>, MenuType<PlatformMenu>> PLATFORM_MENU =
+            registerMenuType("platform_menu", (windowId, inv, buf) -> new PlatformMenu(windowId, inv, buf.readBlockPos()));
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
                                                                                                               IContainerFactory<T> factory) {

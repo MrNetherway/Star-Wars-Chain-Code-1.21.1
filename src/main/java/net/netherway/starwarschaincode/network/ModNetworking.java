@@ -15,11 +15,13 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.component.ModDataComponents;
 import net.netherway.starwarschaincode.entity.custom.BlasterBoltEntity;
+import net.netherway.starwarschaincode.entity.custom.ShipEntity;
 import net.netherway.starwarschaincode.item.custom.LightsaberItem;
 import net.netherway.starwarschaincode.item.custom.WeaponItem;
 import net.netherway.starwarschaincode.race.RaceAbilities;
-import net.netherway.starwarschaincode.race.RaceAttachments;
+import net.netherway.starwarschaincode.component.ModAttachments;
 import net.netherway.starwarschaincode.race.RacePassives;
+import net.netherway.starwarschaincode.screen.custom.PlatformMenu;
 
 @EventBusSubscriber(modid = StarWarsChainCode.MOD_ID)
 public class ModNetworking {
@@ -33,6 +35,25 @@ public class ModNetworking {
         registrar.playToServer(ActivateSaberPayload.TYPE, ActivateSaberPayload.STREAM_CODEC, ModNetworking::handleSaberActivate);
         registrar.playToServer(LightsaberImpulsePayload.TYPE, LightsaberImpulsePayload.STREAM_CODEC, ModNetworking::handleLightsaberImpulse);
         registrar.playToServer(BlockingPayload.TYPE, BlockingPayload.STREAM_CODEC, ModNetworking::handleBlocking);
+        registrar.playToServer(
+                ShipInputPayload.TYPE,
+                ShipInputPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    var player = context.player();
+                    if (player.getVehicle() instanceof ShipEntity ship) {
+                        ship.setInput(payload.left(), payload.right(), payload.up(), payload.down());
+                    }
+                })
+        );
+        registrar.playToServer(
+                SelectShipTabPayload.TYPE,
+                SelectShipTabPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() -> {
+                    if (context.player().containerMenu instanceof PlatformMenu menu) {
+                        menu.selectShip(payload.shipIndex());
+                    }
+                })
+        );
     }
 
     private static void handleBlocking(BlockingPayload payload, IPayloadContext ctx) {
@@ -162,7 +183,7 @@ public class ModNetworking {
 
     private static void handleSelectRace(SelectRacePayload payload, IPayloadContext ctx) {
         if (ctx.player() instanceof ServerPlayer player) {
-            player.setData(RaceAttachments.PLAYER_RACE, payload.race());
+            player.setData(ModAttachments.PLAYER_RACE, payload.race());
             RacePassives.apply(player, payload.race());
         }
     }

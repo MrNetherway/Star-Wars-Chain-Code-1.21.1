@@ -28,6 +28,10 @@ public class ModBlocks {
             () -> new ChargedChamberBlock(BlockBehaviour.Properties.of()));
     public static final DeferredBlock<Block> BLUEPRINT_BUILDER = registerBlock("blueprint_builder",
             () -> new BlueprintBuilderBlock(BlockBehaviour.Properties.of()));
+    public static final DeferredBlock<PlatformControllerBlock> PLATFORM_CONTROLLER = registerBlockWithoutItem("platform_controller",
+            () -> new PlatformControllerBlock(BlockBehaviour.Properties.of().strength(3.5f).noOcclusion()));
+    public static final DeferredBlock<PlatformFillerBlock> PLATFORM_FILLER = registerBlockWithoutItem("platform_filler",
+            () -> new PlatformFillerBlock(BlockBehaviour.Properties.of().strength(3.5f).noOcclusion().noLootTable()));
 
     public static final DeferredBlock<Block> ALUMINUM_BLOCK = registerBlock("aluminum_block",
             () -> new Block(BlockBehaviour.Properties.of()));
@@ -56,6 +60,10 @@ public class ModBlocks {
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block> DeferredBlock<T> registerBlockWithoutItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
     }
 
     public static void register(IEventBus eventBus) {

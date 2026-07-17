@@ -4,7 +4,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.netherway.starwarschaincode.race.Race;
-import net.netherway.starwarschaincode.race.RaceAttachments;
+import net.netherway.starwarschaincode.component.ModAttachments;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -29,14 +29,14 @@ public class RaceTestCommands {
 
     private static int setRace(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
         ServerPlayer player = ctx.getSource().getPlayerOrException();
-        player.setData(RaceAttachments.PLAYER_RACE, Race.WOOKIEE);
+        player.setData(ModAttachments.PLAYER_RACE, Race.WOOKIEE);
         ctx.getSource().sendSuccess(() -> Component.literal("Raça definida: Wookiee"), false);
         return 1;
     }
 
     private static int getRace(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
         ServerPlayer player = ctx.getSource().getPlayerOrException();
-        Race race = player.getData(RaceAttachments.PLAYER_RACE);
+        Race race = player.getData(ModAttachments.PLAYER_RACE);
         ctx.getSource().sendSuccess(() -> Component.literal("Sua raça: " + race.getName()), false);
         return 1;
     }

@@ -28,6 +28,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LAVA_REFINER.get());
         this.dropSelf(ModBlocks.CHARGED_CHAMBER.get());
         this.dropSelf(ModBlocks.BLUEPRINT_BUILDER.get());
+        this.dropSelf(ModBlocks.PLATFORM_CONTROLLER.get());
 
         this.dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
 

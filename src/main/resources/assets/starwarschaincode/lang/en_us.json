@@ -44,6 +44,7 @@
   "block.starwarschaincode.lava_refiner": "Lava Refiner",
   "block.starwarschaincode.charged_chamber": "Charged Chamber",
   "block.starwarschaincode.blueprint_builder": "Blueprint Builder",
+  "block.starwarschaincode.platform_controller": "Ship Platform",
 
   "block.starwarschaincode.aluminum_block": "Aluminum Block",
 
@@ -68,5 +69,9 @@
   "key.categories.starwarschaincode": "Star Wars: Chain Code",
   "key.starwarschaincode.lightsaber_impulse": "Lightsaber Impulse",
 
-  "sounds.starwarschaincode.wookiee_ability_1": "Wookiee Roar"
+  "sounds.starwarschaincode.wookiee_ability_1": "Wookiee Roar",
+
+  "message.starwarschaincode.platform_obstructed": "Platform placement is obstructed.",
+
+  "menu.starwarschaincode.platform": "Ship Platform"
 }
