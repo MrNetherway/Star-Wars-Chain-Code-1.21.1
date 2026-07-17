@@ -55,13 +55,13 @@ public class TatooineChunkGenerator extends ChunkGenerator {
         return CODEC;
     }
 
-    private ImprovedNoise noise(RandomState randomState) {
+    private ImprovedNoise noise() {
         ImprovedNoise local = duneNoise;
         if (local == null) {
             synchronized (this) {
                 local = duneNoise;
                 if (local == null) {
-                    local = new ImprovedNoise(RandomSource.create(randomState.legacyLevelSeed()));
+                    local = new ImprovedNoise(RandomSource.create(1_469_857L)); // seed fixo, qualquer número
                     duneNoise = local;
                 }
             }
@@ -69,8 +69,8 @@ public class TatooineChunkGenerator extends ChunkGenerator {
         return local;
     }
 
-    private int surfaceHeight(int worldX, int worldZ, RandomState randomState) {
-        double n = noise(randomState).noise(worldX * FREQUENCY, 0, worldZ * FREQUENCY);
+    private int surfaceHeight(int worldX, int worldZ) {
+        double n = noise().noise(worldX * FREQUENCY, 0, worldZ * FREQUENCY);
         return BASE_HEIGHT + (int) Math.round(n * AMPLITUDE);
     }
 
@@ -104,7 +104,7 @@ public class TatooineChunkGenerator extends ChunkGenerator {
             for (int z = 0; z < 16; z++) {
                 int worldX = startX + x;
                 int worldZ = startZ + z;
-                int height = surfaceHeight(worldX, worldZ, randomState);
+                int height = surfaceHeight(worldX, worldZ);
 
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
                 for (int y = MIN_Y; y < height; y++) {
@@ -129,12 +129,12 @@ public class TatooineChunkGenerator extends ChunkGenerator {
 
     @Override
     public int getBaseHeight(int x, int z, Heightmap.Types type, LevelHeightAccessor level, RandomState randomState) {
-        return surfaceHeight(x, z, randomState);
+        return surfaceHeight(x, z);
     }
 
     @Override
-    public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor level, RandomState randomState) {
-        int height = surfaceHeight(x, z, randomState);
+    public NoiseColumn getBaseColumn(int x, int z, LevelHeightAccessor level, RandomState domState) {
+        int height = surfaceHeight(x, z);
         BlockState[] states = new BlockState[level.getHeight()];
         for (int i = 0; i < states.length; i++) {
             int y = level.getMinBuildHeight() + i;
@@ -151,6 +151,6 @@ public class TatooineChunkGenerator extends ChunkGenerator {
 
     @Override
     public void addDebugScreenInfo(List<String> info, RandomState randomState, BlockPos pos) {
-        info.add("Tatooine dune gen — height: " + surfaceHeight(pos.getX(), pos.getZ(), randomState));
+        info.add("Tatooine dune gen — height: " + surfaceHeight(pos.getX(), pos.getZ()));
     }
 }
