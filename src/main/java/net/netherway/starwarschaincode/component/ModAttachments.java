@@ -8,7 +8,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.entity.ShipInventoryData;
+import net.netherway.starwarschaincode.faction.FactionReputationData;
 import net.netherway.starwarschaincode.race.Race;
+import net.netherway.starwarschaincode.attachment.HyperspaceTravelData;
 
 public class ModAttachments {
 
@@ -28,6 +30,20 @@ public class ModAttachments {
             ATTACHMENT_TYPES.register("ship_inventory", () ->
                     AttachmentType.builder(ShipInventoryData::new)
                             .serialize(ShipInventoryData.CODEC)
+                            .build()
+            );
+
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<HyperspaceTravelData>> HYPERSPACE_TRAVEL =
+            ATTACHMENT_TYPES.register("hyperspace_travel", () ->
+                    AttachmentType.builder(() -> HyperspaceTravelData.IDLE)
+                            .sync(HyperspaceTravelData.STREAM_CODEC)
+                            .build());
+
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<FactionReputationData>> FACTION_REPUTATION =
+            ATTACHMENT_TYPES.register("faction_reputation", () ->
+                    AttachmentType.builder(FactionReputationData::empty)
+                            .serialize(FactionReputationData.CODEC)
+                            .copyOnDeath()
                             .build()
             );
 

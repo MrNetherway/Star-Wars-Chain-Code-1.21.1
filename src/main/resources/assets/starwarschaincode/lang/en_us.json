@@ -45,6 +45,7 @@
   "block.starwarschaincode.charged_chamber": "Charged Chamber",
   "block.starwarschaincode.blueprint_builder": "Blueprint Builder",
   "block.starwarschaincode.platform_controller": "Ship Platform",
+  "block.starwarschaincode.tibanna_gas": "Tibanna Gas",
 
   "block.starwarschaincode.aluminum_block": "Aluminum Block",
 
@@ -68,10 +69,28 @@
   "key.starwarschaincode.race_ability_2": "Race Ability 2",
   "key.categories.starwarschaincode": "Star Wars: Chain Code",
   "key.starwarschaincode.lightsaber_impulse": "Lightsaber Impulse",
+  "key.starwarschaincode.ship_descend": "Ship Descend",
 
   "sounds.starwarschaincode.wookiee_ability_1": "Wookiee Roar",
 
   "message.starwarschaincode.platform_obstructed": "Platform placement is obstructed.",
+  "message.starwarschaincode.ship.missing_components": "The ship is missing its essential components!",
+  "message.starwarschaincode.ship.no_fuel": "The ship is out of fuel!",
 
-  "menu.starwarschaincode.platform": "Ship Platform"
+  "menu.starwarschaincode.platform": "Ship Platform",
+
+  "data.starwarschaincode.solar_captured": "Total energy captured: %s / %s",
+  "data.starwarschaincode.sun_visible": "The sun is visible!",
+  "data.starwarschaincode.sun_not_visible": "The sun is not visible!",
+  "data.starwarschaincode.null_tibanna": "The capsule is empty.",
+  "data.starwarschaincode.tibanna": "Tibanna available: %s / %s",
+  "data.starwarschaincode.transferring_energy": "Transferring Energy... %s / %s",
+
+  "screen.starwarschaincode.ship_components": "Ship Components",
+
+  "gui.starwarschaincode.planet_map.distance": "Distance: %s UA",
+  "gui.starwarschaincode.planet_map.cost": "Cost: %s tibanna gas",
+  "gui.starwarschaincode.planet_map.current_location": "You're here.",
+  "planet.starwarschaincode.tatooine": "Tatooine",
+  "planet.starwarschaincode.overworld": "Earth"
 }

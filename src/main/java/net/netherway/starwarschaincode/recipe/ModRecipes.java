@@ -36,12 +36,12 @@ public class ModRecipes {
             });
 
     public static final DeferredHolder<RecipeSerializer<?>, BlueprintRecipeSerializer> BLUEPRINT_SERIALIZER =
-            SERIALIZERS.register("blueprint_builder.json", BlueprintRecipeSerializer::new);
+            SERIALIZERS.register("blueprint_builder", BlueprintRecipeSerializer::new);
     public static final DeferredHolder<RecipeType<?>, RecipeType<BlueprintRecipe>> BLUEPRINT_TYPE =
-            TYPES.register("blueprint_builder.json", () -> new RecipeType<BlueprintRecipe>() {
+            TYPES.register("blueprint_builder", () -> new RecipeType<BlueprintRecipe>() {
                 @Override
                 public String toString() {
-                    return "blueprint_builder.json";
+                    return "blueprint_builder";
                 }
             });
 

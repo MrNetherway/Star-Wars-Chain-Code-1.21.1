@@ -2,5 +2,11 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "starwarschaincode:item/tibanna_gas_capsule"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": { "starwarschaincode:tibanna_filled": 1.0 },
+      "model": "starwarschaincode:item/tibanna_gas_capsule_filled"
+    }
+  ]
 }

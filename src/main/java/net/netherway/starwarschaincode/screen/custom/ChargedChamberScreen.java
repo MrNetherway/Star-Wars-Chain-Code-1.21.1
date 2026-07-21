@@ -14,9 +14,9 @@ public class ChargedChamberScreen extends AbstractContainerScreen<ChargedChamber
     private static final ResourceLocation GUI_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "textures/gui/charged_chamber/charged_chamber_gui.png");
     private static final ResourceLocation ARROW_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "textures/gui/arrow_progress.png");
+            ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "textures/gui/energy_arrow_progress.png");
     private static final ResourceLocation BAR_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "textures/gui/energy_progress.png");
+            ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "textures/gui/energy_bar_progress.png");
 
     public ChargedChamberScreen(AbstractContainerMenu menu, Inventory playerInventory, Component title) {
         super((ChargedChamberMenu) menu, playerInventory, title);

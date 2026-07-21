@@ -8,6 +8,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.entity.custom.BlasterBoltEntity;
 import net.netherway.starwarschaincode.entity.custom.ShipEntity;
+import net.netherway.starwarschaincode.entity.custom.StormtrooperCommanderEntity;
+import net.netherway.starwarschaincode.entity.custom.StormtrooperEntity;
 
 import java.util.function.Supplier;
 
@@ -30,6 +32,22 @@ public class ModEntities {
                     .clientTrackingRange(10)
                     .updateInterval(1)
                     .build("ship"));
+
+    public static final Supplier<EntityType<StormtrooperEntity>> STORMTROOPER =
+            ENTITY_TYPES.register("stormtrooper", () -> EntityType.Builder.<StormtrooperEntity>of(
+                            StormtrooperEntity::new,
+                            MobCategory.MISC
+                    )
+                    .sized(1.0f, 1.875f)
+                    .build("stormtrooper"));
+
+    public static final Supplier<EntityType<StormtrooperCommanderEntity>> STORMTROOPER_COMMANDER =
+            ENTITY_TYPES.register("stormtrooper_commander", () -> EntityType.Builder.<StormtrooperCommanderEntity>of(
+                            StormtrooperCommanderEntity::new,
+                            MobCategory.MISC
+                    )
+                    .sized(1.0f, 1.875f)
+                    .build("stormtrooper_commander"));
 
 
     public static void register(IEventBus eventBus) {

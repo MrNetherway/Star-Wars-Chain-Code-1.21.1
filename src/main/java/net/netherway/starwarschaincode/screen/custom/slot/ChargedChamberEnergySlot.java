@@ -12,6 +12,7 @@ public class ChargedChamberEnergySlot  extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return stack.is(ModItems.PORTABLE_SOLAR_COLLECTOR);
+        return stack.is(ModItems.PORTABLE_SOLAR_COLLECTOR) ||
+                stack.is(ModItems.ENERGY_CELL);
     }
 }

@@ -10,7 +10,7 @@
     "grass_color": 14079702,
     "foliage_color": 14079702
   },
-  "carvers": [],
+  "carvers": {},
   "features": [[], [], [], [], [], [], [], [], [], [], []],
   "spawners": {
     "monster": [],

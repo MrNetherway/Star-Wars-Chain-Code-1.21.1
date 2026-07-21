@@ -32,10 +32,10 @@ public class PortableSolarCollectorItem extends Item {
         if (level.isDay() && level.canSeeSky(pos)) {
             sunVisible = true;
             if (level.getGameTime() % 20 == 0) {
-                Integer solar = stack.getOrDefault(ModDataComponents.SOLAR_AMOUNT, 0);
+                Integer solar = stack.getOrDefault(ModDataComponents.ENERGY_AMOUNT, 0);
 
                 if (solar < maxSolar) {
-                    stack.set(ModDataComponents.SOLAR_AMOUNT, solar + 1);
+                    stack.set(ModDataComponents.ENERGY_AMOUNT, solar + 1);
                 }
             }
         } else {
@@ -45,11 +45,12 @@ public class PortableSolarCollectorItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        if(stack.get(ModDataComponents.SOLAR_AMOUNT) != null) {
-            tooltipComponents.add(Component.literal("Total Solar Energy Captured: " + stack.get(ModDataComponents.SOLAR_AMOUNT) + "/" + maxSolar));
+        if(stack.get(ModDataComponents.ENERGY_AMOUNT) != null) {
+            tooltipComponents.add(Component.translatable("data.starwarschaincode.solar_captured",
+                    stack.get(ModDataComponents.ENERGY_AMOUNT), maxSolar));
         }
 
-        tooltipComponents.add(Component.literal(sunVisible ? "The sun is visible!" : "The sun is not visible!")
+        tooltipComponents.add(Component.translatable(sunVisible ? "data.starwarschaincode.sun_visible" : "data.starwarschaincode.sun_not_visible")
                 .withStyle(sunVisible ? ChatFormatting.DARK_GREEN : ChatFormatting.DARK_RED));
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);

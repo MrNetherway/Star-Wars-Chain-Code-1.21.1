@@ -1,6 +1,12 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "starwarschaincode:block/charged_chamber"
+    "down": "starwarschaincode:block/charged_chamber_bottom",
+    "east": "starwarschaincode:block/charged_chamber_side",
+    "north": "starwarschaincode:block/charged_chamber_side",
+    "particle": "starwarschaincode:block/charged_chamber_side",
+    "south": "starwarschaincode:block/charged_chamber_side",
+    "up": "starwarschaincode:block/charged_chamber_top",
+    "west": "starwarschaincode:block/charged_chamber_side"
   }
 }

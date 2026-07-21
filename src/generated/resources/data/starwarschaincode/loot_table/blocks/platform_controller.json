@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "starwarschaincode:platform"
+          "name": "starwarschaincode:platform_controller"
         }
       ],
       "rolls": 1.0

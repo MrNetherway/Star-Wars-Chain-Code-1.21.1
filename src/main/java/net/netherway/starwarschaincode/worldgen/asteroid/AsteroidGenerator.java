@@ -15,7 +15,8 @@ public class AsteroidGenerator {
             ModBlocks.DOONIUM_ORE.get(),
             ModBlocks.DOLOVITE_ORE.get(),
             ModBlocks.QUADANIUM_ORE.get(),
-            ModBlocks.DOLOVITE_ORE.get()
+            ModBlocks.DOLOVITE_ORE.get(),
+            ModBlocks.TIBANNA_GAS.get()
     };
 
 

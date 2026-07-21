@@ -14,6 +14,7 @@ import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.block.custom.BlueprintBuilderBlock;
 import net.netherway.starwarschaincode.block.custom.ChargedChamberBlock;
 import net.netherway.starwarschaincode.block.custom.LavaRefinerBlock;
+import net.netherway.starwarschaincode.block.custom.TibannaGasBlock;
 import net.netherway.starwarschaincode.item.ModItems;
 
 import java.util.function.Supplier;
@@ -23,18 +24,24 @@ public class ModBlocks {
             DeferredRegister.createBlocks(StarWarsChainCode.MOD_ID);
 
     public static final DeferredBlock<Block> LAVA_REFINER = registerBlock("lava_refiner",
-            () -> new LavaRefinerBlock(BlockBehaviour.Properties.of()));
+            () -> new LavaRefinerBlock(BlockBehaviour.Properties.of().lightLevel(state -> state.getValue(
+                    LavaRefinerBlock.HAS_LAVA) ? 6 : 0
+            ).strength(5f)));
     public static final DeferredBlock<Block> CHARGED_CHAMBER = registerBlock("charged_chamber",
-            () -> new ChargedChamberBlock(BlockBehaviour.Properties.of()));
+            () -> new ChargedChamberBlock(BlockBehaviour.Properties.of().strength(5f)));
     public static final DeferredBlock<Block> BLUEPRINT_BUILDER = registerBlock("blueprint_builder",
-            () -> new BlueprintBuilderBlock(BlockBehaviour.Properties.of()));
+            () -> new BlueprintBuilderBlock(BlockBehaviour.Properties.of().strength(3.5f)));
     public static final DeferredBlock<PlatformControllerBlock> PLATFORM_CONTROLLER = registerBlockWithoutItem("platform_controller",
             () -> new PlatformControllerBlock(BlockBehaviour.Properties.of().strength(3.5f).noOcclusion()));
     public static final DeferredBlock<PlatformFillerBlock> PLATFORM_FILLER = registerBlockWithoutItem("platform_filler",
-            () -> new PlatformFillerBlock(BlockBehaviour.Properties.of().strength(3.5f).noOcclusion().noLootTable()));
+            () -> new PlatformFillerBlock(BlockBehaviour.Properties.of().strength(3.5f).noOcclusion()));
+    public static final DeferredBlock<Block> TIBANNA_GAS = registerBlock("tibanna_gas",
+            () -> new TibannaGasBlock(BlockBehaviour.Properties.of().noLootTable().noOcclusion()
+                    .isViewBlocking((state, level, pos) -> false)
+                    .isSuffocating((state, level, pos) -> false)));
 
     public static final DeferredBlock<Block> ALUMINUM_BLOCK = registerBlock("aluminum_block",
-            () -> new Block(BlockBehaviour.Properties.of()));
+            () -> new Block(BlockBehaviour.Properties.of().strength(5f)));
 
     public static final DeferredBlock<Block> DOONIUM_ORE = registerBlock("doonium_ore",
             () -> new DropExperienceBlock(UniformInt.of(2, 4),

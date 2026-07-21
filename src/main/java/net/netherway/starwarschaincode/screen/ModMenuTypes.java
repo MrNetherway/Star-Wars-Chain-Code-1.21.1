@@ -9,11 +9,9 @@ import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
-import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderMenu;
-import net.netherway.starwarschaincode.screen.custom.ChargedChamberMenu;
-import net.netherway.starwarschaincode.screen.custom.LavaRefinerMenu;
-import net.netherway.starwarschaincode.screen.custom.PlatformMenu;
+import net.netherway.starwarschaincode.screen.custom.*;
 
+import java.util.UUID;
 import java.util.function.Supplier;
 
 public class ModMenuTypes {
@@ -28,6 +26,10 @@ public class ModMenuTypes {
             registerMenuType("blueprint_builder_menu", BlueprintBuilderMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<PlatformMenu>> PLATFORM_MENU =
             registerMenuType("platform_menu", (windowId, inv, buf) -> new PlatformMenu(windowId, inv, buf.readBlockPos()));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<ShipComponentMenu>> SHIP_COMPONENT_MENU =
+            registerMenuType("ship_component_menu",
+                    (windowId, inv, buf) -> new ShipComponentMenu(windowId, inv, buf.readVarInt()));
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
                                                                                                               IContainerFactory<T> factory) {

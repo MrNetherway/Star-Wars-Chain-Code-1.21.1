@@ -45,6 +45,7 @@
   "block.starwarschaincode.charged_chamber": "Câmara Energizada",
   "block.starwarschaincode.blueprint_builder": "Construtora de Blueprint",
   "block.starwarschaincode.platform_controller": "Plataforma de Naves",
+  "block.starwarschaincode.tibanna_gas": "Gás Tibanna",
 
   "block.starwarschaincode.aluminum_block": "Bloco de Alumínio",
 
@@ -69,10 +70,28 @@
   "key.starwarschaincode.race_ability_2": "Habilidade de raça 2",
   "key.categories.starwarschaincode": "Star Wars: Chain Code",
   "key.starwarschaincode.lightsaber_impulse": "Impulso com Sabre de Luz",
+  "key.starwarschaincode.ship_descend": "Descer Nave",
 
   "sounds.starwarschaincode.wookiee_ability_1": "Rugido de Wookiee",
 
   "message.starwarschaincode.platform_obstructed": "O espaço está obstruído.",
+  "message.starwarschaincode.ship.missing_components": "A nave está sem seus componentes essenciais!",
+  "message.starwarschaincode.ship.no_fuel": "A nave está sem combustível!",
 
-  "menu.starwarschaincode.platform": "Plataforma de Naves"
+  "menu.starwarschaincode.platform": "Plataforma de Naves",
+
+  "data.starwarschaincode.solar_captured": "Energia total capturada: %s / %s",
+  "data.starwarschaincode.sun_visible": "O sol está visível!",
+  "data.starwarschaincode.sun_not_visible": "O sol não está visível!",
+  "data.starwarschaincode.null_tibanna": "A cápsula está vazia.",
+  "data.starwarschaincode.tibanna": "Tibanno disponível: %s / %s",
+  "data.starwarschaincode.transferring_energy": "Transferindo Energia... %s / %s",
+
+  "screen.starwarschaincode.ship_components": "Componentes da Nave",
+
+  "gui.starwarschaincode.planet_map.distance": "Distância: %s UA",
+  "gui.starwarschaincode.planet_map.cost": "Custo: %s gás tibanna",
+  "gui.starwarschaincode.planet_map.current_location": "Você está aqui",
+  "planet.starwarschaincode.tatooine": "Tatooine",
+  "planet.starwarschaincode.overworld": "Terra"
 }

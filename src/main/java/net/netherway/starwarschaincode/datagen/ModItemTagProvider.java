@@ -3,7 +3,6 @@ package net.netherway.starwarschaincode.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.netherway.starwarschaincode.StarWarsChainCode;
@@ -35,5 +34,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         this.tag(ModItemTags.MAIN_REACTOR_COMPONENT)
                 .add(ModItems.MAIN_REACTOR_BLUEPRINT.get());
+
+        this.tag(ModItemTags.TIBANNA_ENERGY_COMPONENT)
+                .add(ModItems.TIBANNA_GAS_CAPSULE.get());
+
+        this.tag(ModItemTags.ENERGY_HOLDER)
+                .add(ModItems.ENERGY_CELL.get())
+                .add(ModItems.PORTABLE_SOLAR_COLLECTOR.get());
     }
 }

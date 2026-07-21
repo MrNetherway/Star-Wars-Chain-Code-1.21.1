@@ -1,6 +1,12 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "all": "starwarschaincode:block/lava_refiner"
+    "down": "starwarschaincode:block/lava_refiner_bottom",
+    "east": "starwarschaincode:block/lava_refiner_side",
+    "north": "starwarschaincode:block/lava_refiner_side",
+    "particle": "starwarschaincode:block/lava_refiner_side",
+    "south": "starwarschaincode:block/lava_refiner_side",
+    "up": "starwarschaincode:block/lava_refiner_top",
+    "west": "starwarschaincode:block/lava_refiner_side"
   }
 }

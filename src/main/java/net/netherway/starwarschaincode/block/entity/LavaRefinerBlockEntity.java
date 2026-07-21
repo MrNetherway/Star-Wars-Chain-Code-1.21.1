@@ -21,7 +21,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.netherway.starwarschaincode.block.custom.LavaRefinerBlock;
 import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
 import net.netherway.starwarschaincode.recipe.LavaRefinerRecipe;
 import net.netherway.starwarschaincode.recipe.LavaRefinerRecipeInput;
@@ -30,6 +32,8 @@ import net.netherway.starwarschaincode.screen.custom.LavaRefinerMenu;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+
+import static net.netherway.starwarschaincode.block.custom.LavaRefinerBlock.HAS_LAVA;
 
 public class LavaRefinerBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStackHandler itemHandler = new ItemStackHandler(3) {
@@ -41,6 +45,8 @@ public class LavaRefinerBlockEntity extends BlockEntity implements MenuProvider 
             }
         }
     };
+
+
 
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
@@ -129,6 +135,13 @@ public class LavaRefinerBlockEntity extends BlockEntity implements MenuProvider 
 
     public void tick(Level level, BlockPos blockPos, BlockState blockState) {
         consumeLavaBucket();
+        if(!level.isClientSide) {
+            if(lava > 0) {
+                level.setBlockAndUpdate(blockPos, blockState.setValue(HAS_LAVA, true));
+            } else {
+                level.setBlockAndUpdate(blockPos, blockState.setValue(HAS_LAVA, false));
+            }
+        }
         if(hasRecipe()) {
             increaseCraftingProgress();
             setChanged(level, blockPos, blockState);
@@ -180,7 +193,7 @@ public class LavaRefinerBlockEntity extends BlockEntity implements MenuProvider 
 
     private boolean hasRecipe() {
         Optional<RecipeHolder<LavaRefinerRecipe>> recipe = getCurrentRecipe();
-        if(recipe.isEmpty() || lava-2 <= 0)
+        if(recipe.isEmpty() || lava-2 < 0)
             return false;
 
         ItemStack output = recipe.get().value().output();

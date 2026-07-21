@@ -3,17 +3,16 @@ package net.netherway.starwarschaincode;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.netherway.starwarschaincode.block.ModBlocks;
 import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
 import net.netherway.starwarschaincode.component.ModDataComponents;
 import net.netherway.starwarschaincode.entity.ModEntities;
+import net.netherway.starwarschaincode.entity.custom.StormtrooperEntity;
 import net.netherway.starwarschaincode.item.ModCreativeModeTabs;
 import net.netherway.starwarschaincode.recipe.ModRecipes;
 import net.netherway.starwarschaincode.screen.ModMenuTypes;
-import net.netherway.starwarschaincode.screen.custom.BlueprintBuilderScreen;
-import net.netherway.starwarschaincode.screen.custom.ChargedChamberScreen;
-import net.netherway.starwarschaincode.screen.custom.LavaRefinerScreen;
-import net.netherway.starwarschaincode.screen.custom.PlatformScreen;
+import net.netherway.starwarschaincode.screen.custom.*;
 import net.netherway.starwarschaincode.worldgen.ModChunkGenerators;
 import net.netherway.starwarschaincode.worldgen.ModFeatures;
 import net.netherway.starwarschaincode.item.ModItems;
@@ -94,6 +93,7 @@ public class StarWarsChainCode {
             event.register(ModMenuTypes.CHARGED_CHAMBER_MENU.get(), ChargedChamberScreen::new);
             event.register(ModMenuTypes.BLUEPRINT_BUILDER_MENU.get(), BlueprintBuilderScreen::new);
             event.register(ModMenuTypes.PLATFORM_MENU.get(), PlatformScreen::new);
+            event.register(ModMenuTypes.SHIP_COMPONENT_MENU.get(), ShipComponentScreen::new);
         }
     }
 

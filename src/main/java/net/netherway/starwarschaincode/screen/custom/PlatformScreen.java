@@ -46,16 +46,16 @@ public class PlatformScreen extends AbstractContainerScreen<PlatformMenu> {
         lastKnownShipCount = ships.size();
 
         for (int i = 0; i < ships.size(); i++) {
-            int index = i;
-            String shipName = ships.get(i).getShipType() != null
-                    ? ships.get(i).getShipType().id().getPath()
+            ShipEntity ship = ships.get(i);
+            String shipName = ship.getShipType() != null
+                    ? ship.getShipType().id().getPath()
                     : "ship";
 
             Button tabButton = Button.builder(
                     Component.literal(shipName.length() > 8 ? shipName.substring(0, 8) : shipName),
                     btn -> {
-                        menu.selectShip(index);
-                        PacketDistributor.sendToServer(new SelectShipTabPayload(index));
+                        menu.selectShipById(ship.getUUID());
+                        PacketDistributor.sendToServer(new SelectShipTabPayload(ship.getUUID()));
                     }
             ).bounds(leftPos + 8 + i * 42, topPos - 24, 40, 20).build();
 

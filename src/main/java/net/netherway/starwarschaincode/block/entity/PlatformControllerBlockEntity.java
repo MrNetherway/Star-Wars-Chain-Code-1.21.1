@@ -115,7 +115,9 @@ public class PlatformControllerBlockEntity extends BlockEntity {
                 worldPosition.getX() + size, worldPosition.getY() + 4, worldPosition.getZ() + size
         );
 
-        return level.getEntitiesOfClass(ShipEntity.class, scanArea);
+        List<ShipEntity> ships = new java.util.ArrayList<>(level.getEntitiesOfClass(ShipEntity.class, scanArea));
+        ships.sort(java.util.Comparator.comparing(ShipEntity::getUUID));
+        return ships;
     }
 
     public void openMenu(Player player) {

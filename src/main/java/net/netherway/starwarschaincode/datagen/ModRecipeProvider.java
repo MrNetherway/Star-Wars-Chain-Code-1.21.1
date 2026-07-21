@@ -34,7 +34,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WIRE, 8)
-                .pattern("CCC")
+                .pattern("CC")
                 .define('C', Items.COPPER_INGOT)
                 .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT)).save(recipeOutput);
 
@@ -130,7 +130,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("III")
                 .define('R', Items.REDSTONE)
                 .define('I', Items.IRON_INGOT)
-                .define('B', ModItems.ALUMINA)
+                .define('B', ModItems.DOONIUM_BAR)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.QUADANIUM_COATING, 4)
@@ -167,7 +167,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("AEA")
                 .pattern("AAA")
                 .define('C', Items.COPPER_INGOT)
-                .define('A', ModItems.ALUMINUM_BAR)
+                .define('A', Items.IRON_INGOT)
                 .define('E', ModItems.ENERGY_CELL)
                 .unlockedBy("has_energy_cell", has(ModItems.ENERGY_CELL)).save(recipeOutput);
 
@@ -204,7 +204,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("RRR")
                 .pattern("IBI")
                 .pattern("III")
-                .define('I', Blocks.IRON_BLOCK)
+                .define('I', ModBlocks.ALUMINUM_BLOCK)
                 .define('R', ModItems.IRON_ROD)
                 .define('B', ModItems.BLUEPRINT_READER)
                 .unlockedBy("has_iron_rod", has(ModItems.IRON_ROD)).save(recipeOutput);

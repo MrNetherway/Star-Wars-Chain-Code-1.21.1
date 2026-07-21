@@ -25,13 +25,33 @@ public class PlatformMenu extends AbstractContainerMenu {
     private List<ShipEntity> availableShips = List.of();
     private int selectedShipIndex = -1;
 
+    private int serverTickCounter = 0;
+    private static final int SERVER_REFRESH_INTERVAL = 20; // 1s
+
+    @Override
+    public void broadcastChanges() {
+        super.broadcastChanges();
+    }
+
+    private static final int[][] COMPONENT_SLOT_POSITIONS = {
+            {29, 27},   // slot 0
+            {54, 27},   // slot 1
+            {79, 27},   // slot 2
+            {104, 27},   // slot 3
+            {129, 27},   // slot 4
+            {79, 57},   // slot 5 (energia) - posição diferente
+            {116, 50},  // slot 6
+            {134, 50},  // slot 7
+    };
+
     public PlatformMenu(int windowId, Inventory inv, BlockPos controllerPos) {
         super(ModMenuTypes.PLATFORM_MENU.get(), windowId);
         this.player = inv.player;
         this.controller = (PlatformControllerBlockEntity) inv.player.level().getBlockEntity(controllerPos);
 
         // Slot 0: casco — só ativo na tela principal
-        this.addSlot(new Slot(controller.getHullSlot(), 0, 26, 20) {
+        this.addSlot(new Slot(controller.getHullSlot(), 0, 79, 33
+        ) {
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return true;
@@ -46,7 +66,10 @@ public class PlatformMenu extends AbstractContainerMenu {
 // Slots de componente — só ativos na tela de nave
         for (int i = 0; i < ShipInventoryData.MAX_SLOTS; i++) {
             int slotIndex = i;
-            this.addSlot(new Slot(componentContainer, i, 26 + (i % 4) * 18, 50 + (i / 4) * 18) {
+            int x = COMPONENT_SLOT_POSITIONS[i][0];
+            int y = COMPONENT_SLOT_POSITIONS[i][1];
+
+            this.addSlot(new Slot(componentContainer, i, x, y) {
                 @Override
                 public boolean mayPlace(ItemStack stack) {
                     return componentContainer.canPlaceItem(slotIndex, stack);
@@ -65,12 +88,54 @@ public class PlatformMenu extends AbstractContainerMenu {
         refreshAvailableShips();
     }
 
+    public void selectShipById(java.util.UUID shipId) {
+        if (shipId == null) {
+            deselectShip();
+            return;
+        }
+
+        ShipEntity target = availableShips.stream()
+                .filter(s -> s.getUUID().equals(shipId))
+                .findFirst()
+                .orElse(null);
+
+        if (target == null) {
+            // pode estar desatualizado (ex: nave spawnou depois da criação do menu) — tenta um refresh antes de desistir
+            refreshAvailableShips();
+            target = availableShips.stream()
+                    .filter(s -> s.getUUID().equals(shipId))
+                    .findFirst()
+                    .orElse(null);
+        }
+
+        if (target == null) return; // realmente não existe
+
+        if (viewMode == ViewMode.SHIP_COMPONENTS && shipId.equals(selectedShipId)) {
+            deselectShip();
+            return;
+        }
+
+        this.viewMode = ViewMode.SHIP_COMPONENTS;
+        this.selectedShipId = shipId;
+        componentContainer.setDelegate(target.getComponentInventory());
+        this.broadcastChanges();
+    }
+
     public void refreshAvailableShips() {
         if (controller == null) return;
         this.availableShips = controller.getShipsOnPlatform();
 
-        if (selectedShipIndex >= 0 && selectedShipIndex >= availableShips.size()) {
-            selectShip(-1);
+        if (selectedShipId != null) {
+            ShipEntity stillThere = availableShips.stream()
+                    .filter(s -> s.getUUID().equals(selectedShipId))
+                    .findFirst()
+                    .orElse(null);
+
+            if (stillThere == null) {
+                deselectShip();
+            } else {
+                componentContainer.setDelegate(stillThere.getComponentInventory());
+            }
         }
     }
 
@@ -79,8 +144,14 @@ public class PlatformMenu extends AbstractContainerMenu {
     }
 
     public int getSelectedShipIndex() {
-        return selectedShipIndex;
+        if (selectedShipId == null) return -1;
+        for (int i = 0; i < availableShips.size(); i++) {
+            if (availableShips.get(i).getUUID().equals(selectedShipId)) return i;
+        }
+        return -1;
     }
+
+    private java.util.UUID selectedShipId = null;
 
     public enum ViewMode { MAIN, SHIP_COMPONENTS }
 
@@ -90,26 +161,10 @@ public class PlatformMenu extends AbstractContainerMenu {
         return viewMode;
     }
 
-    public void selectShip(int index) {
-        // clicar na mesma nave de novo = voltar pra tela principal (toggle)
-        if (viewMode == ViewMode.SHIP_COMPONENTS && this.selectedShipIndex == index) {
-            this.viewMode = ViewMode.MAIN;
-            this.selectedShipIndex = -1;
-            componentContainer.setDelegate(null);
-            this.broadcastChanges();
-            return;
-        }
-
-        if (index < 0 || index >= availableShips.size()) {
-            this.viewMode = ViewMode.MAIN;
-            this.selectedShipIndex = -1;
-            componentContainer.setDelegate(null);
-        } else {
-            this.viewMode = ViewMode.SHIP_COMPONENTS;
-            this.selectedShipIndex = index;
-            ShipEntity ship = availableShips.get(index);
-            componentContainer.setDelegate(ship.getComponentInventory());
-        }
+    private void deselectShip() {
+        this.viewMode = ViewMode.MAIN;
+        this.selectedShipId = null;
+        componentContainer.setDelegate(null);
         this.broadcastChanges();
     }
 

@@ -17,4 +17,9 @@ public class ModItemTags {
             TagKey.create(net.minecraft.core.registries.Registries.ITEM, fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "component_navicomputer"));
     public static final TagKey<Item> MAIN_REACTOR_COMPONENT =
             TagKey.create(net.minecraft.core.registries.Registries.ITEM, fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "component_main_reactor"));
+    public static final TagKey<Item> TIBANNA_ENERGY_COMPONENT =
+            TagKey.create(net.minecraft.core.registries.Registries.ITEM, fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "tibanna_energy"));
+
+    public static final TagKey<Item> ENERGY_HOLDER =
+            TagKey.create(net.minecraft.core.registries.Registries.ITEM, fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "energy_holder"));
 }

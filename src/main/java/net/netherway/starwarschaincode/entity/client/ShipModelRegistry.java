@@ -3,6 +3,7 @@ package net.netherway.starwarschaincode.entity.client;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.resources.ResourceLocation;
+import net.netherway.starwarschaincode.entity.client.ships.Z95HeadhunterModel;
 import net.netherway.starwarschaincode.entity.custom.ShipEntity;
 import net.netherway.starwarschaincode.entity.ModShipTypes;
 

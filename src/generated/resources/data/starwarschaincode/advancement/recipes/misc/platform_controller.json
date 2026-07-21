@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "starwarschaincode:platform"
+        "recipe": "starwarschaincode:platform_controller"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "starwarschaincode:platform"
+      "starwarschaincode:platform_controller"
     ]
   }
 }

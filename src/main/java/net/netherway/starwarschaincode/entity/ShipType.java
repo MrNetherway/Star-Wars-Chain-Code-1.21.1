@@ -15,6 +15,8 @@ public record ShipType(
         float turnSpeed,
         float hitboxWidth,
         float hitboxHeight,
+        float cameraDistance,
+        float tibannaConsumptionRate,
         ResourceLocation texture,
         List<ComponentSlot> componentSlots
 ) {
@@ -26,7 +28,8 @@ public record ShipType(
         LIFE_SUPPORT(ModItemTags.LIFE_SUPPORT_COMPONENT),
         REPULSORLIFT_GENERATOR(ModItemTags.REPULSORLIFT_GENERATOR_COMPONENT),
         NAVICOMPUTER(ModItemTags.NAVICOMPUTER_COMPONENT),
-        MAIN_REACTOR(ModItemTags.MAIN_REACTOR_COMPONENT);
+        MAIN_REACTOR(ModItemTags.MAIN_REACTOR_COMPONENT),
+        ENERGY(ModItemTags.TIBANNA_ENERGY_COMPONENT);
 
 
         private final TagKey<Item> tag;

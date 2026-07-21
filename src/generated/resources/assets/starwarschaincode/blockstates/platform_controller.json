@@ -1,7 +1,8 @@
 {
   "variants": {
     "": {
-      "model": "starwarschaincode:block/platform_controller"
+      "model": "starwarschaincode:block/platform_controller",
+      "y": 90
     }
   }
 }

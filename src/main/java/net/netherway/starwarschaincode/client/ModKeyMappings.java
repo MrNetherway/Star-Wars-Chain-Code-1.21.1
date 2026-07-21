@@ -44,11 +44,19 @@ public class ModKeyMappings {
     "key.categories.starwarschaincode"
     );
 
+    public static final KeyMapping SHIP_DESCEND = new KeyMapping(
+            "key.starwarschaincode.ship_descend",
+            InputConstants.Type.KEYSYM,
+            InputConstants.KEY_LCONTROL,
+            "key.categories.starwarschaincode"
+    );
+
     @SubscribeEvent
     public static void register(RegisterKeyMappingsEvent event) {
         event.register(RACE_ABILITY_1);
         event.register(RACE_ABILITY_2);
         event.register(LIGHTSABER_ACTIVATE);
         event.register(LIGHTSABER_IMPULSE);
+        event.register(SHIP_DESCEND);
     }
 }

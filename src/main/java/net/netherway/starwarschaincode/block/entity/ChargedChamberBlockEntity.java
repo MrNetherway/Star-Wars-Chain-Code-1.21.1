@@ -15,19 +15,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
 import net.netherway.starwarschaincode.component.ModDataComponents;
-import net.netherway.starwarschaincode.item.ModItems;
 import net.netherway.starwarschaincode.recipe.*;
 import net.netherway.starwarschaincode.screen.custom.ChargedChamberMenu;
-import net.netherway.starwarschaincode.screen.custom.LavaRefinerMenu;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -142,13 +138,13 @@ public class ChargedChamberBlockEntity extends BlockEntity implements MenuProvid
 
     private void consumeEnergy() {
         ItemStack stack = itemHandler.getStackInSlot(ENERGY_SLOT);
-        if(energy >= 100 || !stack.is(ModItems.PORTABLE_SOLAR_COLLECTOR))
+        if(energy >= 100)
             return;
-        Integer solar = stack.getOrDefault(ModDataComponents.SOLAR_AMOUNT, 0);
+        Integer solar = stack.getOrDefault(ModDataComponents.ENERGY_AMOUNT, 0);
 
         if(solar <= 0) { return; }
 
-        stack.set(ModDataComponents.SOLAR_AMOUNT, solar - 1);
+        stack.set(ModDataComponents.ENERGY_AMOUNT, solar - 1);
         increaseEnergy();
     }
 

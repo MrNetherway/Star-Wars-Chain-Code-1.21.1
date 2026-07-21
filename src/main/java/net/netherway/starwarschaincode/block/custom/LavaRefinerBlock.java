@@ -11,11 +11,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.netherway.starwarschaincode.block.entity.LavaRefinerBlockEntity;
 import net.netherway.starwarschaincode.block.entity.renderer.ModBlockEntities;
@@ -24,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class LavaRefinerBlock extends BaseEntityBlock {
     public static final MapCodec<LavaRefinerBlock> CODEC = simpleCodec(LavaRefinerBlock::new);
+    public static final BooleanProperty HAS_LAVA = BooleanProperty.create("has_lava");
 
     public LavaRefinerBlock(Properties properties) {
         super(properties);
@@ -79,5 +83,10 @@ public class LavaRefinerBlock extends BaseEntityBlock {
 
         return createTickerHelper(blockEntityType, ModBlockEntities.LAVA_REFINER_BE.get(),
                 (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(HAS_LAVA);
     }
 }

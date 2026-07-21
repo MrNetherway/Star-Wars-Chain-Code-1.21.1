@@ -1,6 +1,5 @@
 package net.netherway.starwarschaincode.entity.custom;
 
-
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -14,8 +13,11 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.netherway.starwarschaincode.entity.ModEntities;
+import net.netherway.starwarschaincode.faction.FactionMember;
 
 public class BlasterBoltEntity extends Projectile {
+
+    private double damage = 6.0D;
 
     public BlasterBoltEntity(EntityType<? extends BlasterBoltEntity> entityType, Level level) {
         super(entityType, level);
@@ -33,8 +35,6 @@ public class BlasterBoltEntity extends Projectile {
         );
     }
 
-
-
     public void shoot(LivingEntity shooter, float speed) {
         this.setOwner(shooter);
 
@@ -43,9 +43,38 @@ public class BlasterBoltEntity extends Projectile {
         this.setDeltaMovement(direction.scale(speed));
     }
 
+    public void shootFromRotation(LivingEntity shooter, double dx, double dy, double dz, float speed, float inaccuracy) {
+        this.setOwner(shooter);
+
+        Vec3 direction = new Vec3(dx, dy, dz).normalize();
+
+        this.setPos(
+                shooter.getX(),
+                shooter.getEyeY() - 0.1D,
+                shooter.getZ()
+        );
+
+        this.setDeltaMovement(direction.scale(speed));
+    }
+
+    public void setDamage(double damage) {
+        this.damage = damage;
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
 
+    }
+
+    @Override
+    protected boolean canHitEntity(Entity target) {
+        if (!super.canHitEntity(target)) return false;
+
+        Entity owner = this.getOwner();
+        if (owner instanceof FactionMember ownerFaction && target instanceof FactionMember targetFaction) {
+            return ownerFaction.getFaction() != targetFaction.getFaction();
+        }
+        return true;
     }
 
     @Override
@@ -71,14 +100,12 @@ public class BlasterBoltEntity extends Projectile {
         super.onHitEntity(result);
 
         Entity target = result.getEntity();
-
         Entity owner = this.getOwner();
 
-        if (target instanceof LivingEntity livingTarget) {
-
+        if (target instanceof LivingEntity livingTarget && owner instanceof LivingEntity livingOwner) {
             livingTarget.hurt(
-                    this.damageSources().mobAttack((LivingEntity) owner),
-                    6.0f
+                    this.damageSources().mobAttack(livingOwner),
+                    (float) this.damage
             );
         }
 

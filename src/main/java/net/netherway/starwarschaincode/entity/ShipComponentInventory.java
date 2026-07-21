@@ -14,6 +14,15 @@ public class ShipComponentInventory implements Container {
         this.data = data;
     }
 
+    public int findSlotByType(ShipType.ComponentType type) {
+        for (int i = 0; i < shipType.componentSlots().size(); i++) {
+            if (shipType.componentSlots().get(i).type() == type) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public ShipType.ComponentSlot getSlotDefinition(int index) {
         return shipType.componentSlots().get(index);
     }
@@ -95,6 +104,10 @@ public class ShipComponentInventory implements Container {
     @Override
     public boolean stillValid(Player player) {
         return true;
+    }
+
+    public boolean isSlotActive(int slot) {
+        return slot >= 0 && slot < shipType.componentSlots().size();
     }
 
     @Override

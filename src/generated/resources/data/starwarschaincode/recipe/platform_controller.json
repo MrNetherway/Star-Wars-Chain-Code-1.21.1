@@ -6,7 +6,7 @@
       "item": "starwarschaincode:blueprint_reader"
     },
     "I": {
-      "item": "minecraft:iron_block"
+      "item": "starwarschaincode:aluminum_block"
     },
     "R": {
       "item": "starwarschaincode:iron_rod"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "starwarschaincode:platform"
+    "id": "starwarschaincode:platform_controller"
   }
 }

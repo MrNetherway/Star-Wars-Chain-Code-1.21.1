@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "has_lava=false": {
       "model": "starwarschaincode:block/lava_refiner"
+    },
+    "has_lava=true": {
+      "model": "starwarschaincode:block/lava_refiner_filled"
     }
   }
 }
