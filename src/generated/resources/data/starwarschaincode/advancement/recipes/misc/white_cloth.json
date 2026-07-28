@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_ingot": {
+    "has_cotton_fiber": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_ingot"
+            "items": "starwarschaincode:cotton_fiber"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "starwarschaincode:solar_cell"
+        "recipe": "starwarschaincode:white_cloth"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_iron_ingot"
+      "has_cotton_fiber"
     ]
   ],
   "rewards": {
     "recipes": [
-      "starwarschaincode:solar_cell"
+      "starwarschaincode:white_cloth"
     ]
   }
 }

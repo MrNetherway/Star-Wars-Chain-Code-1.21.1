@@ -27,6 +27,7 @@ sourceSets.main.resources {
 }
 
 repositories {
+
     maven {
         // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
@@ -36,6 +37,22 @@ repositories {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "https://modmaven.dev"
+    }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'GeckoLib'
+                url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            }
+        }
+        filter { includeGroupAndSubgroups('software.bernie.geckolib') }
+    }
+
+    mavenCentral()
+    maven {
+        name = "RedlanceMinecraft"
+        url = "https://repo.redlance.org/public"
     }
 }
 
@@ -133,6 +150,20 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for Forge
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolibVersion}"
+
+    implementation "com.zigythebird.playeranim:PlayerAnimationLibNeo:$pal_version"
+}
+
+configurations.configureEach {
+    resolutionStrategy {
+        force 'com.google.code.gson:gson:2.10.1'
+        force 'org.slf4j:slf4j-api:2.0.16'
+        force 'it.unimi.dsi:fastutil:8.5.15'
+        force 'io.netty:netty-buffer:4.1.115.Final'
+        force 'io.netty:netty-common:4.1.115.Final'
+    }
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

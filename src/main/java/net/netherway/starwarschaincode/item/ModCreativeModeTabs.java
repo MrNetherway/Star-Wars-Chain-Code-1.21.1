@@ -34,10 +34,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.QUADANIUM_COATING);
                         output.accept(ModItems.READER);
                         output.accept(ModItems.SCREEN);
-                        output.accept(ModItems.SOLAR_CELL);
+                        output.accept(ModItems.POWER_PACK);
                         output.accept(ModItems.SOLAR_COLLECTOR_PANEL);
                         output.accept(ModItems.WIRE);
                         output.accept(ModItems.TIBANNA_GAS_CAPSULE);
+                        output.accept(ModItems.WHITE_CLOTH);
+                        output.accept(ModItems.BLACK_CLOTH);
+                        output.accept(ModItems.COTTON_FIBER);
                     }).build());
 
     public static final Supplier<CreativeModeTab> LONG_RANGE_WEAPON_TAB = CREATIVE_MODE_TAB.register("long_range_weapon_tab",
@@ -67,6 +70,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BLUEPRINT_BUILDER);
                         output.accept(ModBlocks.PLATFORM_CONTROLLER);
                         output.accept(ModBlocks.TIBANNA_GAS);
+                        output.accept(ModBlocks.WEAPON_WORKBENCH);
 
                     }).build());
 
@@ -102,6 +106,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BASE_DOONIUM);
                         output.accept(ModItems.BASE_QUADANIUM);
                         output.accept(ModItems.POLISHED_DOLOVITE);
+                        output.accept(ModItems.RAW_POLYMER_RESIN);
+                        output.accept(ModItems.PLASTOID);
+                        output.accept(ModItems.NON_REFINED_PLASTOID_COMPOUND);
 
                     }).build());
 

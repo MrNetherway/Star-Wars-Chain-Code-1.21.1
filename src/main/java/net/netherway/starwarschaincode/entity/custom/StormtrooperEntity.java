@@ -2,6 +2,8 @@ package net.netherway.starwarschaincode.entity.custom;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -18,6 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 import net.netherway.starwarschaincode.entity.ai.FactionHurtByTargetGoal;
 import net.netherway.starwarschaincode.entity.ai.FollowCommanderGoal;
 import net.netherway.starwarschaincode.entity.ai.RangedBlasterAttackGoal;
@@ -26,6 +29,7 @@ import net.netherway.starwarschaincode.entity.ai.FactionHostileTargetGoal;
 import net.netherway.starwarschaincode.faction.Faction;
 import net.netherway.starwarschaincode.faction.FactionMember;
 import net.netherway.starwarschaincode.item.ModItems;
+import net.netherway.starwarschaincode.item.custom.WeaponItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -44,6 +48,11 @@ public class StormtrooperEntity extends Monster implements RangedAttackMob, Fact
                 .add(Attributes.MOVEMENT_SPEED, 0.25D)
                 .add(Attributes.FOLLOW_RANGE, 24.0D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D);
+    }
+
+    @Override
+    public void checkDespawn() {
+
     }
 
     @Override
@@ -76,6 +85,10 @@ public class StormtrooperEntity extends Monster implements RangedAttackMob, Fact
     }
 
     private void alertNearbyTroopers(LivingEntity attacker) {
+        if (attacker instanceof ServerPlayer player && (player.isCreative() || player.isSpectator())) {
+            return;
+        }
+
         List<Mob> nearby = this.level().getEntitiesOfClass(
                 Mob.class,
                 this.getBoundingBox().inflate(16.0D),
@@ -94,7 +107,7 @@ public class StormtrooperEntity extends Monster implements RangedAttackMob, Fact
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new RangedBlasterAttackGoal<>(this, 1.0D, 20, 15.0F));
         this.targetSelector.addGoal(1, new FactionHurtByTargetGoal(this, this::getFaction));
-        this.goalSelector.addGoal(2, new FollowCommanderGoal(this, 1.0D, 5.0F, 32.0F));
+        this.goalSelector.addGoal(2, new FollowCommanderGoal(this, 1.0D, 10.0F, 32.0F));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.8D));
@@ -112,21 +125,55 @@ public class StormtrooperEntity extends Monster implements RangedAttackMob, Fact
 
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        if (!(this.getMainHandItem().getItem() instanceof net.netherway.starwarschaincode.item.custom.WeaponItem weapon)) {
+
+        if (!(this.getMainHandItem().getItem() instanceof WeaponItem weapon))
             return;
+
+        BlasterBoltEntity bolt = new BlasterBoltEntity(this, this.level());
+
+        bolt.setDamage(weapon.getDamage());
+        bolt.setFireDistance(weapon.getFireDistance());
+
+        Vec3 forward = new Vec3(
+                target.getX() - this.getX(),
+                target.getY(0.5D) - this.getEyeY(),
+                target.getZ() - this.getZ()
+        ).normalize();
+
+        Vec3 worldUp = new Vec3(0, 1, 0);
+
+        Vec3 right;
+
+        if (Math.abs(forward.y) > 0.999) {
+            right = new Vec3(1, 0, 0);
+        } else {
+            right = worldUp.cross(forward).normalize();
         }
 
-        BlasterBoltEntity bolt = new BlasterBoltEntity(this.level(), this);
-        bolt.setDamage(weapon.getDamage());
+        Vec3 up = forward.cross(right).normalize();
 
-        double dx = target.getX() - this.getX();
-        double dy = target.getY(0.5D) - bolt.getY();
-        double dz = target.getZ() - this.getZ();
+        Vec3 spawn = this.getEyePosition()
+                .add(forward.scale(0.65))
+                .add(right.scale(0.28))
+                .add(up.scale(-0.18));
 
-        bolt.shootFromRotation(this, dx, dy, dz, weapon.getProjectileSpeed(), 6.0F);
+        bolt.setPos(spawn);
+
+        bolt.shoot(
+                forward.x,
+                forward.y,
+                forward.z,
+                weapon.getProjectileSpeed(),
+                0F
+        );
+
         this.level().addFreshEntity(bolt);
 
-        this.playSound(net.minecraft.sounds.SoundEvents.SNOW_GOLEM_SHOOT, 1.0F, 1.0F);
+        this.playSound(
+                SoundEvents.SNOW_GOLEM_SHOOT,
+                1.0F,
+                1.0F
+        );
     }
 
     @Override

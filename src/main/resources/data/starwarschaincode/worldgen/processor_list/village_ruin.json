@@ -1,0 +1,9 @@
+{
+  "processors": [
+    {
+      "processor_type": "starwarschaincode:village_ruin",
+      "destroy_chance": 0.15,
+      "fire_chance": 0.2
+    }
+  ]
+}

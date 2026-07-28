@@ -3,9 +3,11 @@ package net.netherway.starwarschaincode.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.netherway.starwarschaincode.StarWarsChainCode;
+import net.netherway.starwarschaincode.block.ModBlockTags;
 import net.netherway.starwarschaincode.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,5 +35,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.QUADANIUM_ORE.get())
                 .add(ModBlocks.DOLOVITE_ORE.get());
+
+        tag(ModBlockTags.ASTEROID_BLOCKS)
+                .add(ModBlocks.DOONIUM_ORE.get())
+                .add(ModBlocks.DOLOVITE_ORE.get())
+                .add(ModBlocks.QUADANIUM_ORE.get())
+                .add(ModBlocks.TIBANNA_GAS.get())
+                .add(Blocks.BLACKSTONE);
     }
 }

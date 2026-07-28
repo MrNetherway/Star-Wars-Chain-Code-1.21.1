@@ -1,76 +1,40 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
-	"textures": {
-		"0": "starwarschaincode:item/dl_44",
-		"particle": "starwarschaincode:item/dl_44"
-	},
-	"elements": [
-		{
-			"name": "pistol_grip",
-			"from": [7, 0, 7],
-			"to": [9, 5, 9],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
-			"faces": {
-				"north": {"uv": [0, 0, 2, 7], "texture": "#0"},
-				"east": {"uv": [2, 0, 4, 7], "texture": "#0"},
-				"south": {"uv": [4, 0, 6, 7], "texture": "#0"},
-				"west": {"uv": [6, 0, 8, 7], "texture": "#0"},
-				"up": {"uv": [4, 11, 2, 9], "texture": "#0"},
-				"down": {"uv": [6, 9, 4, 11], "texture": "#0"}
-			}
-		},
-		{
-			"name": "pistol_cano",
-			"from": [7, 5, 3],
-			"to": [9, 7, 10],
-			"rotation": {"angle": 0, "axis": "x", "origin": [8, 6, 6]},
-			"faces": {
-				"north": {"uv": [6, 9, 8, 11], "texture": "#0"},
-				"east": {"uv": [0, 7, 7, 9], "texture": "#0"},
-				"south": {"uv": [8, 9, 10, 11], "texture": "#0"},
-				"west": {"uv": [7, 7, 14, 9], "texture": "#0"},
-				"up": {"uv": [10, 7, 8, 0], "texture": "#0"},
-				"down": {"uv": [2, 9, 0, 16], "texture": "#0"}
-			}
-		}
-	],
+	"parent": "builtin/entity",
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, 3.5, 0]
+			"rotation": [0, -180, 0],
+			"translation": [-1, -5.4, 4],
+			"scale": [1, 1, 1]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, 3.5, 0]
+			"rotation": [0, -180, 0],
+			"translation": [0.25, -5.4, 4],
+			"scale": [1, 1, 1]
 		},
 		"firstperson_righthand": {
-			"translation": [0, 5, 0]
+			"rotation": [0, -180, 0],
+			"translation": [-0.25, -2.5, -0.25],
+			"scale": [1, 1, 1]
 		},
 		"firstperson_lefthand": {
-			"translation": [0, 5, 0]
-		},
-		"ground": {
-			"rotation": [0.82, 14.9, -89.7],
-			"translation": [4, -1.25, 0],
-			"scale": [0.66016, 1, 1]
+			"rotation": [0, -180, 0],
+			"translation": [-0.25, -2.5, -0.25],
+			"scale": [1, 1, 1]
 		},
 		"gui": {
-			"rotation": [90, 60, -90],
-			"translation": [3.5, 4.25, 0],
-			"scale": [1.51758, 1.51758, 1.51758]
+			"rotation": [-91.68, 55.43, 91.47],
+			"translation": [-0.25, -12, 0],
+			"scale": [1, 1, 1]
+		},
+		"ground": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 0, -7.5],
+			"scale": [1, 1, 1]
 		},
 		"fixed": {
-			"rotation": [102.28, -52.12, 99.73],
-			"translation": [-3.75, 2.25, 0],
-			"scale": [1.37305, 1.37305, 1.37305]
+			"rotation": [0, 0, 0],
+			"translation": [0, 0, 0],
+			"scale": [1, 1, 1]
 		}
-	},
-	"groups": [
-		{
-			"name": "main",
-			"origin": [7, 0, 7],
-			"scope": 0,
-			"color": 0,
-			"children": [0, 1]
-		}
-	]
+	}
 }

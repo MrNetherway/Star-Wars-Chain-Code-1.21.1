@@ -14,6 +14,9 @@
   "item.starwarschaincode.quadanium_bar": "Quadanium Ingot",
   "item.starwarschaincode.raw_dolovite": "Raw Dolovite",
   "item.starwarschaincode.polished_dolovite": "Polished Dolovite",
+  "item.starwarschaincode.raw_polymer_resin": "Raw Polymer Resin",
+  "item.starwarschaincode.non_refined_plastoid_compound": "Non Refined Plastoid Compound",
+  "item.starwarschaincode.plastoid": "Plastoid",
 
   "item.starwarschaincode.iron_rod": "Iron Rod",
   "item.starwarschaincode.blueprint_reader": "Blueprint Reader",
@@ -24,7 +27,7 @@
   "item.starwarschaincode.aluminum_plate": "Aluminum Plate",
   "item.starwarschaincode.doonium_wing": "Doonium Wing",
   "item.starwarschaincode.energy_cell": "Energy Cell",
-  "item.starwarschaincode.solar_cell": "Solar Cell",
+  "item.starwarschaincode.power_pack": "Power Pack",
   "item.starwarschaincode.quadanium_coating": "Quadanium Coating",
   "item.starwarschaincode.solar_collector_panel": "Solar Collector Panel",
   "item.starwarschaincode.copper_plate": "Copper Plate",
@@ -33,6 +36,9 @@
   "item.starwarschaincode.polished_dolovite_plate": "Polished Dolovite Plate",
   "item.starwarschaincode.tibanna_gas_capsule": "Tibanna Gas Capsule",
   "item.starwarschaincode.portable_solar_collector": "Portable Solar Collector",
+  "item.starwarschaincode.white_cloth": "White Cloth",
+  "item.starwarschaincode.black_cloth": "Black Cloth",
+  "item.starwarschaincode.cotton_fiber": "Cotton Fiber",
 
   "item.starwarschaincode.z_95_headhunter_blueprint": "Z 95 Headhunter Blueprint",
   "item.starwarschaincode.hyperdrive_blueprint": "Hyperdrive Blueprint",
@@ -70,6 +76,8 @@
   "key.categories.starwarschaincode": "Star Wars: Chain Code",
   "key.starwarschaincode.lightsaber_impulse": "Lightsaber Impulse",
   "key.starwarschaincode.ship_descend": "Ship Descend",
+  "key.starwarschaincode.weapon_reload": "Weapon Reload",
+  "key.starwarschaincode.lightsaber_activate": "Activate Lightsaber",
 
   "sounds.starwarschaincode.wookiee_ability_1": "Wookiee Roar",
 
@@ -85,6 +93,8 @@
   "data.starwarschaincode.null_tibanna": "The capsule is empty.",
   "data.starwarschaincode.tibanna": "Tibanna available: %s / %s",
   "data.starwarschaincode.transferring_energy": "Transferring Energy... %s / %s",
+  "data.starwarschaincode.transferring_tibanna": "Transferring Tibanna... %s / %s",
+  "data.starwarschaincode.weapon_tibanna": "Tibanna Available: %s",
 
   "screen.starwarschaincode.ship_components": "Ship Components",
 

@@ -24,6 +24,10 @@ public class ModMenuTypes {
             registerMenuType("charged_chamer_menu", ChargedChamberMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<BlueprintBuilderMenu>> BLUEPRINT_BUILDER_MENU =
             registerMenuType("blueprint_builder_menu", BlueprintBuilderMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<WeaponWorkbenchMenu>> WEAPON_WORKBENCH_MENU =
+            registerMenuType("weapon_workbench_menu", WeaponWorkbenchMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<LightsaberAssemblerMenu>> LIGHTSABER_ASSEMBLER_MENU =
+            registerMenuType("lightsaber_assembler_menu", LightsaberAssemblerMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<PlatformMenu>> PLATFORM_MENU =
             registerMenuType("platform_menu", (windowId, inv, buf) -> new PlatformMenu(windowId, inv, buf.readBlockPos()));
 

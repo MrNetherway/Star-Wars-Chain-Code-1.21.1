@@ -1,0 +1,15 @@
+{
+  "name": "starwarschaincode:village/plains/streets_ruined",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "starwarschaincode:village/plains/streets/street_straight_ruined",
+        "processors": "starwarschaincode:village_ruin",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

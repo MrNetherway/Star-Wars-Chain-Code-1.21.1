@@ -18,10 +18,8 @@ public class ModEntities {
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, StarWarsChainCode.MOD_ID);
 
     public static final Supplier<EntityType<BlasterBoltEntity>> BLASTER_BOLT =
-            ENTITY_TYPES.register("blasterboltentity", () -> EntityType.Builder.<BlasterBoltEntity>of(
-                    BlasterBoltEntity::new,
-                    MobCategory.MISC
-            ).sized(0.2f, 0.2f).build("blasterboltentity"));
+            ENTITY_TYPES.register("blasterboltentity", () -> EntityType.Builder.<BlasterBoltEntity>of(BlasterBoltEntity::new, MobCategory.MISC)
+                    .sized(0.2f, 0.2f).build("blasterboltentity"));
 
     public static final Supplier<EntityType<ShipEntity>> SHIP =
             ENTITY_TYPES.register("ship", () -> EntityType.Builder.<ShipEntity>of(

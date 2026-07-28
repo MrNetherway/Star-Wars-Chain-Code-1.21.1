@@ -1,0 +1,50 @@
+{
+  "name": "starwarschaincode:village/plains/houses_ruined",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "starwarschaincode:village/plains/houses/plains_armorer_house_1_ruined",
+        "processors": "starwarschaincode:village_ruin",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "starwarschaincode:village/plains/houses/plains_big_house_1_ruined",
+        "processors": "starwarschaincode:village_ruin",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "starwarschaincode:village/plains/houses/plains_butcher_shop_1_ruined",
+        "processors": "starwarschaincode:village_ruin",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "starwarschaincode:village/plains/houses/plains_small_house_1_ruined",
+        "processors": "starwarschaincode:village_ruin",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element",
+        "element_type_check": "empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

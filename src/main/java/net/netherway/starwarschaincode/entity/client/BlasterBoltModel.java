@@ -1,20 +1,22 @@
-package net.netherway.starwarschaincode.entity.client;// Made with Blockbench 5.1.4
+package net.netherway.starwarschaincode.entity.client;// Made with Blockbench 5.1.5
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.netherway.starwarschaincode.StarWarsChainCode;
 import net.netherway.starwarschaincode.entity.custom.BlasterBoltEntity;
 
-public class BlasterBoltModel<T extends BlasterBoltEntity> extends HierarchicalModel<T> {
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+
+public class BlasterBoltModel extends EntityModel<BlasterBoltEntity> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION =
 			new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(StarWarsChainCode.MOD_ID, "blasterboltentity"), "main");
@@ -45,6 +47,4 @@ public class BlasterBoltModel<T extends BlasterBoltEntity> extends HierarchicalM
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		blast.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
-
-	public ModelPart root() { return blast; }
 }

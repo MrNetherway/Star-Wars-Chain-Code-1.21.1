@@ -11,10 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.netherway.starwarschaincode.StarWarsChainCode;
-import net.netherway.starwarschaincode.block.custom.BlueprintBuilderBlock;
-import net.netherway.starwarschaincode.block.custom.ChargedChamberBlock;
-import net.netherway.starwarschaincode.block.custom.LavaRefinerBlock;
-import net.netherway.starwarschaincode.block.custom.TibannaGasBlock;
+import net.netherway.starwarschaincode.block.custom.*;
 import net.netherway.starwarschaincode.item.ModItems;
 
 import java.util.function.Supplier;
@@ -31,6 +28,10 @@ public class ModBlocks {
             () -> new ChargedChamberBlock(BlockBehaviour.Properties.of().strength(5f)));
     public static final DeferredBlock<Block> BLUEPRINT_BUILDER = registerBlock("blueprint_builder",
             () -> new BlueprintBuilderBlock(BlockBehaviour.Properties.of().strength(3.5f)));
+    public static final DeferredBlock<Block> WEAPON_WORKBENCH = registerBlock("weapon_workbench",
+            () -> new WeaponWorkbenchBlock(BlockBehaviour.Properties.of().strength(3.5f)));
+    public static final DeferredBlock<Block> LIGHTSABER_ASSEMBLER = registerBlock("lightsaber_assembler",
+            () -> new LightsaberAssemblerBlock(BlockBehaviour.Properties.of().strength(3.5f)));
     public static final DeferredBlock<PlatformControllerBlock> PLATFORM_CONTROLLER = registerBlockWithoutItem("platform_controller",
             () -> new PlatformControllerBlock(BlockBehaviour.Properties.of().strength(3.5f).noOcclusion()));
     public static final DeferredBlock<PlatformFillerBlock> PLATFORM_FILLER = registerBlockWithoutItem("platform_filler",

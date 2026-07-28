@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "starwarschaincode:raw_polymer_resin"
+    },
+    {
+      "item": "starwarschaincode:quadanium_coating"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "starwarschaincode:non_refined_plastoid_compound"
+  }
+}

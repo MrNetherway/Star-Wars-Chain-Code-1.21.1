@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "starwarschaincode:village_plains_ruined",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 6,
+    "separation": 4,
+    "salt": 984712
+  }
+}

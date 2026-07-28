@@ -14,7 +14,7 @@ import net.netherway.starwarschaincode.item.ModItems;
 import java.util.List;
 
 public class EnergyCellItem extends Item {
-    private final int maxSolar = 1000;
+    private final int maxEnergy = 1000;
 
     public EnergyCellItem(Properties properties) {
         super(properties);
@@ -36,13 +36,13 @@ public class EnergyCellItem extends Item {
                     return;
 
                 int panelSolar = mainHandStack.getOrDefault(ModDataComponents.ENERGY_AMOUNT, 0);
-                int cellSolar = stack.getOrDefault(ModDataComponents.ENERGY_AMOUNT, 0);
+                int cellEnergy = stack.getOrDefault(ModDataComponents.ENERGY_AMOUNT, 0);
 
-                if (panelSolar > 0 && cellSolar < maxSolar) {
-                    stack.set(ModDataComponents.ENERGY_AMOUNT, cellSolar + 1);
+                if (panelSolar > 0 && cellEnergy < maxEnergy) {
+                    stack.set(ModDataComponents.ENERGY_AMOUNT, cellEnergy + 1);
                     mainHandStack.set(ModDataComponents.ENERGY_AMOUNT, panelSolar - 1);
 
-                    player.displayClientMessage(Component.translatable("data.starwarschaincode.transferring_energy",(cellSolar + 1), maxSolar)
+                    player.displayClientMessage(Component.translatable("data.starwarschaincode.transferring_energy",(cellEnergy + 1), maxEnergy)
                             .withStyle(ChatFormatting.GREEN), true);
                 }
             }
@@ -53,7 +53,7 @@ public class EnergyCellItem extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         if (stack.get(ModDataComponents.ENERGY_AMOUNT) != null) {
             tooltipComponents.add(Component.translatable("data.starwarschaincode.solar_captured",
-                    stack.get(ModDataComponents.ENERGY_AMOUNT), maxSolar));
+                    stack.get(ModDataComponents.ENERGY_AMOUNT), maxEnergy));
         }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

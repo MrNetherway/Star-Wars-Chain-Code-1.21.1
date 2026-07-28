@@ -6,6 +6,8 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.netherway.starwarschaincode.StarWarsChainCode;
+import net.netherway.starwarschaincode.block.ModBlockTags;
+import net.netherway.starwarschaincode.block.ModBlocks;
 import net.netherway.starwarschaincode.item.ModItemTags;
 import net.netherway.starwarschaincode.item.ModItems;
 import org.jetbrains.annotations.Nullable;

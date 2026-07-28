@@ -32,7 +32,8 @@ public class ClientShipCameraHandler {
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.options == null) return;
+
+        if (mc.player == null || mc.options == null || mc.screen != null) return;
 
         boolean ridingShip = mc.player.getVehicle() instanceof ShipEntity;
 

@@ -11,6 +11,7 @@ import net.netherway.starwarschaincode.entity.ModEntities;
 import net.netherway.starwarschaincode.entity.custom.StormtrooperEntity;
 import net.netherway.starwarschaincode.item.ModCreativeModeTabs;
 import net.netherway.starwarschaincode.recipe.ModRecipes;
+import net.netherway.starwarschaincode.registry.ModStructureProcessors;
 import net.netherway.starwarschaincode.screen.ModMenuTypes;
 import net.netherway.starwarschaincode.screen.custom.*;
 import net.netherway.starwarschaincode.worldgen.ModChunkGenerators;
@@ -62,6 +63,7 @@ public class StarWarsChainCode {
         ModRecipes.register(modEventBus);
         ModAttachments.register(modEventBus);
         ModChunkGenerators.register(modEventBus);
+        ModStructureProcessors.PROCESSOR_TYPES.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -94,6 +96,8 @@ public class StarWarsChainCode {
             event.register(ModMenuTypes.BLUEPRINT_BUILDER_MENU.get(), BlueprintBuilderScreen::new);
             event.register(ModMenuTypes.PLATFORM_MENU.get(), PlatformScreen::new);
             event.register(ModMenuTypes.SHIP_COMPONENT_MENU.get(), ShipComponentScreen::new);
+            event.register(ModMenuTypes.WEAPON_WORKBENCH_MENU.get(), WeaponWorkbenchScreen::new);
+            event.register(ModMenuTypes.LIGHTSABER_ASSEMBLER_MENU.get(), LightsaberAssemblerScreen::new);
         }
     }
 

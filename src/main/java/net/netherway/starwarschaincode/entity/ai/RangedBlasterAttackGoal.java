@@ -27,6 +27,11 @@ public class RangedBlasterAttackGoal<T extends PathfinderMob & RangedAttackMob> 
     }
 
     @Override
+    public void start() {
+        this.attackTime = this.mob.getRandom().nextIntBetweenInclusive(10, 30);
+    }
+
+    @Override
     public boolean canUse() {
         return this.mob.getTarget() != null;
     }

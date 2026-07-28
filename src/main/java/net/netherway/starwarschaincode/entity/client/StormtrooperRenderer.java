@@ -31,7 +31,7 @@ public class StormtrooperRenderer extends HumanoidMobRenderer<StormtrooperEntity
     @Override
     public void render(StormtrooperEntity entity, float entityYaw, float partialTicks,
                        PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
-        HumanoidModel.ArmPose pose = entity.isAggressive() ? HumanoidModel.ArmPose.CROSSBOW_HOLD : HumanoidModel.ArmPose.EMPTY;
+        HumanoidModel.ArmPose pose = entity.isAggressive() ? HumanoidModel.ArmPose.CROSSBOW_HOLD : HumanoidModel.ArmPose.CROSSBOW_CHARGE;
         this.getModel().rightArmPose = pose;
         this.getModel().leftArmPose = pose;
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);

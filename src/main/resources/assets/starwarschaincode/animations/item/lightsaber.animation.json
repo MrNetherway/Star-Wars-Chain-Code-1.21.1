@@ -1,0 +1,105 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"lightsaber_activate": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"blade": {
+					"scale": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.0417": {
+							"vector": [1, 0, 1]
+						},
+						"0.5": {
+							"vector": [1, 1, 1]
+						}
+					}
+				}
+			}
+		},
+		"lightsaber_deactivate": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"blade": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.4583": {
+							"vector": [1, 0.01, 1]
+						},
+						"0.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"saber_block_1": {
+			"loop": true,
+			"bones": {
+				"saber": {
+					"rotation": {
+						"vector": [45, 0, 0]
+					},
+					"position": {
+						"vector": [0, -2, 3]
+					}
+				}
+			}
+		},
+		"saber_block_2": {
+			"loop": true,
+			"bones": {
+				"saber": {
+					"rotation": {
+						"vector": [145, 0, 0]
+					},
+					"position": {
+						"vector": [0, 21, 2]
+					}
+				}
+			}
+		},
+		"saber_block_3": {
+			"loop": true,
+			"bones": {
+				"saber": {
+					"position": {
+						"vector": [0, -6, -6]
+					}
+				}
+			}
+		},
+		"saber_block_4": {
+			"loop": true,
+			"bones": {
+				"saber": {
+					"rotation": {
+						"vector": [90, 0, 0]
+					},
+					"position": {
+						"vector": [0, 6, 9]
+					}
+				}
+			}
+		},
+		"saber_impulse": {
+			"loop": true,
+			"bones": {
+				"saber": {
+					"rotation": {
+						"vector": [0, 0, -65]
+					},
+					"position": {
+						"vector": [7.6, -1.5, 0]
+					}
+				}
+			}
+		}
+	}
+}

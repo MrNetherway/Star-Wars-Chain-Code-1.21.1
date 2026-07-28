@@ -22,6 +22,9 @@ public class FactionHostileTargetGoal<T extends Mob> extends NearestAttackableTa
         if (!super.canUse()) return false;
 
         if (this.target instanceof ServerPlayer serverPlayer) {
+            if (serverPlayer.isCreative() || serverPlayer.isSpectator()) {
+                return false;
+            }
             Faction faction = factionSupplier.get();
             return FactionReputationHelper.isHostile(serverPlayer, faction);
         }

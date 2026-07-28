@@ -22,6 +22,9 @@ public class ModItems {
     public static final DeferredItem<Item> QUADANIUM_BAR = ITEMS.registerSimpleItem("quadanium_bar");
     public static final DeferredItem<Item> RAW_DOLOVITE = ITEMS.registerSimpleItem("raw_dolovite");
     public static final DeferredItem<Item> POLISHED_DOLOVITE = ITEMS.registerSimpleItem("polished_dolovite");
+    public static final DeferredItem<Item> RAW_POLYMER_RESIN = ITEMS.registerSimpleItem("raw_polymer_resin");
+    public static final DeferredItem<Item> NON_REFINED_PLASTOID_COMPOUND = ITEMS.registerSimpleItem("non_refined_plastoid_compound");
+    public static final DeferredItem<Item> PLASTOID = ITEMS.registerSimpleItem("plastoid");
 
     public static final DeferredItem<Item> TATOOINE_MODEL = ITEMS.registerItem("tatooine_model",
             properties -> new Item(new Item.Properties()));
@@ -41,6 +44,9 @@ public class ModItems {
     public static final DeferredItem<Item> DOONIUM_PLATE = ITEMS.registerSimpleItem("doonium_plate");
     public static final DeferredItem<Item> IRON_PLATE = ITEMS.registerSimpleItem("iron_plate");
     public static final DeferredItem<Item> POLISHED_DOLOVITE_PLATE = ITEMS.registerSimpleItem("polished_dolovite_plate");
+    public static final DeferredItem<Item> WHITE_CLOTH = ITEMS.registerSimpleItem("white_cloth");
+    public static final DeferredItem<Item> BLACK_CLOTH = ITEMS.registerSimpleItem("black_cloth");
+    public static final DeferredItem<Item> COTTON_FIBER = ITEMS.registerSimpleItem("cotton_fiber");
 
     public static final DeferredItem<Item> Z_95_HEADHUNTER_BLUEPRINT = ITEMS.registerItem("z_95_headhunter_blueprint",
             properties -> new Item(new Item.Properties().stacksTo(1)
@@ -67,20 +73,66 @@ public class ModItems {
             properties -> new TibannaGasCapsuleItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> PEN = ITEMS.registerItem("pen",
             properties -> new Item(properties), new Item.Properties().stacksTo(1).durability(250));
-    public static final DeferredItem<Item> SOLAR_CELL = ITEMS.registerItem("solar_cell",
-            properties -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> POWER_PACK = ITEMS.registerItem("power_pack",
+            properties -> new PowerPackItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> ENERGY_CELL = ITEMS.registerItem("energy_cell",
             properties -> new EnergyCellItem(new Item.Properties().stacksTo(1)));
 
+    public static final DeferredItem<Item> ZOLTWEN_D3X_SCOPE_ATTACHMENT =
+            ITEMS.register("zoltwen_d3x_scope_attachment",
+                    () -> new ScopeAttachmentItem(new Item.Properties(), "zoltwen_d3x", 2.5f, .3f, .6f));
+
+    public static final DeferredItem<Item> MEDIUM_BARREL_ATTACHMENT =
+            ITEMS.register("medium_barrel_attachment",
+                    () -> new BarrelAttachmentItem(new Item.Properties(), "medium", 1.5f));
+
+    public static final DeferredItem<Item> WOODEN_STOCK_ATTACHMENT =
+            ITEMS.register("wooden_stock_attachment",
+                    () -> new StockAttachmentItem(new Item.Properties(), "wooden", 1.1f));
 
     public static final DeferredItem<Item> DL_44 = ITEMS.registerItem("dl_44",
-            properties -> new WeaponItem(properties, 12, 2.5f, 1), new Item.Properties().stacksTo(1));
+            properties -> new WeaponItem(properties, 9.5f, 3f, 1, 20), new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> LIGHTSABER = ITEMS.registerItem("lightsaber",
             properties -> new LightsaberItem(properties.attributes(LightsaberItem.createAttributes()), 12), new Item.Properties().stacksTo(1));
 
 
     public static final DeferredItem<Item> PLATFORM = ITEMS.registerItem("platform_controller",
             properties -> new PlatformItem(properties), new Item.Properties().stacksTo(1));
+
+
+    public static final DeferredItem<Item> WISDOM_1_PART_1 = ITEMS.registerItem("wisdom_1_part_1",
+            properties -> new HiltPartItem(properties, HiltPartType.PART_1), new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> TRAGEDY_1_PART_1 = ITEMS.registerItem("tragedy_1_part_1",
+            properties -> new HiltPartItem(properties, HiltPartType.PART_1), new Item.Properties().stacksTo(1));
+
+    public static final DeferredItem<Item> WISDOM_1_PART_2 = ITEMS.registerItem("wisdom_1_part_2",
+            properties -> new HiltPartItem(properties, HiltPartType.PART_2), new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> TRAGEDY_1_PART_2 = ITEMS.registerItem("tragedy_1_part_2",
+            properties -> new HiltPartItem(properties, HiltPartType.PART_2), new Item.Properties().stacksTo(1));
+
+    public static final DeferredItem<Item> WISDOM_1_PART_3 = ITEMS.registerItem("wisdom_1_part_3",
+            properties -> new HiltPartItem(properties, HiltPartType.PART_3), new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> TRAGEDY_1_PART_3 = ITEMS.registerItem("tragedy_1_part_3",
+            properties -> new HiltPartItem(properties, HiltPartType.PART_3), new Item.Properties().stacksTo(1));
+
+    public static final DeferredItem<Item> BLUE_KYBER_CRYSTAL = ITEMS.registerItem("blue_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_KYBER_CRYSTAL = ITEMS.registerItem("green_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> RED_KYBER_CRYSTAL = ITEMS.registerItem("red_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> PURPLE_KYBER_CRYSTAL = ITEMS.registerItem("purple_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> CYAN_KYBER_CRYSTAL = ITEMS.registerItem("cyan_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> ORANGE_KYBER_CRYSTAL = ITEMS.registerItem("orange_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_KYBER_CRYSTAL = ITEMS.registerItem("yellow_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> WHITE_KYBER_CRYSTAL = ITEMS.registerItem("white_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> MAGENTA_KYBER_CRYSTAL = ITEMS.registerItem("magenta_kyber_crystal",
+            properties -> new KyberCrystalItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

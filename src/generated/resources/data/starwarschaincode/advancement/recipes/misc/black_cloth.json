@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cotton_fiber": {
+      "conditions": {
+        "items": [
+          {
+            "items": "starwarschaincode:cotton_fiber"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "starwarschaincode:black_cloth"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cotton_fiber"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "starwarschaincode:black_cloth"
+    ]
+  }
+}

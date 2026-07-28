@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "starwarschaincode:item/non_refined_plastoid_compound"
+  }
+}

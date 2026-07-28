@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"saber_block_3": {
+			"loop": true,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"vector": [-0.2216, -18.6857, -12.9511]
+					},
+					"position": {
+						"vector": [0, -0.7, 0.6]
+					}
+				}
+			}
+		}
+	}
+}

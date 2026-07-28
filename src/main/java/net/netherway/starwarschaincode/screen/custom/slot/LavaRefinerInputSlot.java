@@ -15,6 +15,7 @@ public class LavaRefinerInputSlot extends SlotItemHandler {
     public boolean mayPlace(ItemStack stack) {
         return stack.is(ModItems.RAW_DOONIUM) ||
                 stack.is(ModItems.RAW_BAUXITE) ||
-                stack.is(ModItems.RAW_QUADANIUM);
+                stack.is(ModItems.RAW_QUADANIUM) ||
+                stack.is(ModItems.NON_REFINED_PLASTOID_COMPOUND);
     }
 }

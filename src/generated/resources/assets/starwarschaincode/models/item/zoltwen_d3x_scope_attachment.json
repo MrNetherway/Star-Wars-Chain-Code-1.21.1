@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "starwarschaincode:item/zoltwen_d3x_scope_attachment"
+  }
+}

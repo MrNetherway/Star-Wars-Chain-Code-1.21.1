@@ -22,6 +22,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.PLATFORM_CONTROLLER);
         blockWithItem(ModBlocks.PLATFORM_FILLER);
         blockWithItem(ModBlocks.TIBANNA_GAS);
+        blockWithItem(ModBlocks.WEAPON_WORKBENCH);
         blueprintBuilderBlock();
         lavaRefinerBlock();
         chargedChamberBlock();

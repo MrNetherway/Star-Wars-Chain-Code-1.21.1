@@ -121,10 +121,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.WIRE, 1)
                 .requires(Items.IRON_INGOT, 1)
                 .requires(ModItems.SOLAR_COLLECTOR_PANEL, 1)
-                .requires(ModItems.SOLAR_CELL, 1)
+                .requires(ModItems.POWER_PACK, 1)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SOLAR_CELL, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.POWER_PACK, 1)
                 .pattern("BBB")
                 .pattern("RIR")
                 .pattern("III")
@@ -182,12 +182,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModBlocks.ALUMINUM_BLOCK, 1)
                 .unlockedBy("has_aluminum_block", has(ModBlocks.ALUMINUM_BLOCK)).save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RAW_POLYMER_RESIN, 1)
+                .requires(ModItems.ALUMINA, 1)
+                .requires(Items.SUGAR, 1)
+                .unlockedBy("has_alumina", has(ModItems.ALUMINA)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.NON_REFINED_PLASTOID_COMPOUND, 1)
+                .requires(ModItems.RAW_POLYMER_RESIN, 1)
+                .requires(ModItems.QUADANIUM_COATING, 1)
+                .unlockedBy("has_quadanium_coating", has(ModItems.QUADANIUM_COATING)).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.DL_44, 1)
                 .pattern("QQQ")
                 .pattern("WT ")
                 .pattern("W  ")
                 .define('Q', ModItems.QUADANIUM_BAR)
-                .define('W', ItemTags.PLANKS)
+                .define('W', ModItems.PLASTOID)
                 .define('T', ModItems.TIBANNA_GAS_CAPSULE)
                 .unlockedBy("has_quadanium_bar", has(ModItems.QUADANIUM_BAR)).save(recipeOutput);
 
@@ -208,6 +218,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R', ModItems.IRON_ROD)
                 .define('B', ModItems.BLUEPRINT_READER)
                 .unlockedBy("has_iron_rod", has(ModItems.IRON_ROD)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WHITE_CLOTH, 16)
+                .requires(ModItems.COTTON_FIBER, 1)
+                .requires(Items.WHITE_DYE, 1)
+                .unlockedBy("has_cotton_fiber", has(ModItems.COTTON_FIBER)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_CLOTH, 16)
+                .requires(ModItems.COTTON_FIBER, 1)
+                .requires(Items.BLACK_DYE, 1)
+                .unlockedBy("has_cotton_fiber", has(ModItems.COTTON_FIBER)).save(recipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_CLOTH, 1)
+                .requires(ModItems.WHITE_CLOTH, 1)
+                .requires(Items.BLACK_DYE, 1)
+                .unlockedBy("has_white_cloth", has(ModItems.WHITE_CLOTH)).save(recipeOutput, "alternative");
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

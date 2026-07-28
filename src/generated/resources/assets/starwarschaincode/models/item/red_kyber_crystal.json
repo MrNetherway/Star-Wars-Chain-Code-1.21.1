@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "starwarschaincode:item/solar_cell"
+    "layer0": "starwarschaincode:item/red_kyber_crystal"
   }
 }

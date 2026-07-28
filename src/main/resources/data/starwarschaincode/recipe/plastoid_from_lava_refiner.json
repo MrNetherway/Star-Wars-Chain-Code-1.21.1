@@ -1,0 +1,10 @@
+{
+  "type": "starwarschaincode:lava_refiner",
+  "ingredient": {
+    "item": "starwarschaincode:non_refined_plastoid_compound"
+  },
+  "result": {
+    "id": "starwarschaincode:plastoid",
+    "count": 1
+  }
+}

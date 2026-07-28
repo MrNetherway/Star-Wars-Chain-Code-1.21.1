@@ -16,7 +16,7 @@ public class ModKeyMappings {
             "key.starwarschaincode.race_ability_1",
             KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM,
-            InputConstants.KEY_R,
+            InputConstants.KEY_H,
             "key.categories.starwarschaincode"
     );
 
@@ -36,6 +36,14 @@ public class ModKeyMappings {
             "key.categories.starwarschaincode"
     );
 
+    public static final KeyMapping WEAPON_RELOAD = new KeyMapping(
+            "key.starwarschaincode.weapon_reload",
+            KeyConflictContext.IN_GAME,
+            InputConstants.Type.KEYSYM,
+            InputConstants.KEY_R,
+            "key.categories.starwarschaincode"
+    );
+
     public static final KeyMapping LIGHTSABER_IMPULSE = new KeyMapping(
     "key.starwarschaincode.lightsaber_impulse",
     KeyConflictContext.IN_GAME,
@@ -51,6 +59,14 @@ public class ModKeyMappings {
             "key.categories.starwarschaincode"
     );
 
+    public static final KeyMapping SCOPE_KEY = new KeyMapping(
+            "key.starwarschaincode.scope",
+            KeyConflictContext.IN_GAME,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_V,
+            "key.categories.starwarschaincode"
+    );
+
     @SubscribeEvent
     public static void register(RegisterKeyMappingsEvent event) {
         event.register(RACE_ABILITY_1);
@@ -58,5 +74,7 @@ public class ModKeyMappings {
         event.register(LIGHTSABER_ACTIVATE);
         event.register(LIGHTSABER_IMPULSE);
         event.register(SHIP_DESCEND);
+        event.register(WEAPON_RELOAD);
+        event.register(SCOPE_KEY);
     }
 }
